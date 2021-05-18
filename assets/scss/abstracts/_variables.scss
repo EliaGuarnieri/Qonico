@@ -1,0 +1,38 @@
+/*! Regular font family */
+/*  @type List */
+$text-font: 'Quicksand', sans-serif !default;
+
+/*! Title font family */
+/*  @type List */
+$title-font: 'Roboto Mono', monospace !default;
+
+
+/*! Blue */
+/*  @type Color */
+$blue: #597CEB !default;
+$blue-dark: #0C2060 !default;
+$blue-light: #C8D3F8 !default;
+
+/*! Beige */
+/*  @type Color */
+$beige: #FDE1CE !default;
+$beige-dark: #F7873B !default;
+$beige-light: #FEF5EF !default;
+
+/*! Background */
+/*  @type Color */
+$black: #030817 !default;
+$white: #F6F8Fe !default;
+
+
+/*! Spacer */
+/*  @type Length */
+$spacer: 15rem !default;
+
+/*! Container's maximum width */
+/*  @type Length */
+$max-width: 1200px !default;
+
+/*! Gutter's width */
+/*  @type Length */
+$gutter: 4.8rem !default;
