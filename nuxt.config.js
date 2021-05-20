@@ -2,6 +2,11 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  server: {
+    port: process.env.NODE_ENV === 'production' || 3000,
+    host: process.env.NODE_ENV === 'production' || '0.0.0.0'
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Veri Web Design',
