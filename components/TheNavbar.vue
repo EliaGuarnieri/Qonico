@@ -65,9 +65,9 @@ header {
 }
 .navbar {
   display: flex;
+  position: relative;
   justify-content: space-between;
   align-items: center;
-  position: relative;
   z-index: 9999;
 
   .menu-toggle {
@@ -80,7 +80,6 @@ header {
     flex-flow: column;
     justify-content: space-between;
     position: absolute;
-    width: 100vw;
     height: calc(100vh - 100%);
     top: 100%;
     left: 50%;
