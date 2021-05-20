@@ -78,6 +78,7 @@ small {
 
 /* Button font style */
 .button {
+  font-family: $title-font;
   font-weight: 700;
   line-height: 1;
   letter-spacing: 1.25px;
