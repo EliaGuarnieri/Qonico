@@ -6,11 +6,16 @@
 html {
   font-size: 62.5%;
   -webkit-text-size-adjust: 100%;
+  height: -webkit-fill-available;
 }
 
 body {
+  position: relative;
   margin: 0;
   background-color: $white;
+  min-height: 100vh;
+  /* mobile viewport bug fix */
+  min-height: -webkit-fill-available;
 }
 
 h1, h2, h3, h4, h5, h6, p, a {
