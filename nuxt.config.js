@@ -36,8 +36,13 @@ export default {
   // Inject scss variables Globally
   styleResources: {
     scss: [
-      '~/assets/scss/variables.scss'
+      '~/assets/scss/abstracts/_variables.scss'
     ]
+  },
+
+  router: {
+    linkActiveClass: 'is-active',
+    linkExactActiveClass: 'is-exact-active'
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
