@@ -1,42 +1,40 @@
 <template>
-  <header>
-    <div class="navbar container">
-      <div class="logo">
-        <p>Logo</p>
-      </div>
-
-      <button
-        class="menu-toggle"
-        @click="isOpen = !isOpen"
-      />
-      <transition name="slide-fade">
-        <nav
-          v-if="isOpen"
-          class="nav"
-        >
-          <ul class="nav__list container">
-            <li
-              v-for="(item, index) in items"
-              :key="index"
-              class="nav__item"
-            >
-              <NuxtLink
-                class="nav__link"
-                :to="item.url"
-              >
-                {{ item.name }}
-              </NuxtLink>
-            </li>
-          </ul>
-          <SocialList class="container" />
-        </nav>
-      </transition>
+  <div class="navbar container">
+    <div class="logo">
+      <p>Logo</p>
     </div>
-  </header>
+
+    <button
+      class="menu-toggle"
+      @click="isOpen = !isOpen"
+    />
+    <transition name="slide-fade">
+      <nav
+        v-if="isOpen"
+        class="nav"
+      >
+        <ul class="nav__list container">
+          <li
+            v-for="(item, index) in items"
+            :key="index"
+            class="nav__item"
+          >
+            <NuxtLink
+              class="nav__link"
+              :to="item.url"
+            >
+              {{ item.name }}
+            </NuxtLink>
+          </li>
+        </ul>
+        <SocialList class="container" />
+      </nav>
+    </transition>
+  </div>
 </template>
 
 <script>
-import SocialList from './SocialList.vue'
+import SocialList from 'elements/SocialList.vue'
 
 /**
  *# For scrolling behaviour:
@@ -59,10 +57,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-header {
-  background-color: $black;
-  color: white;
-}
 .navbar {
   display: flex;
   position: relative;

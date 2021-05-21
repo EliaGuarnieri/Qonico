@@ -1,14 +1,14 @@
 <template>
   <div>
-    <TheNavbar />
+    <TheHeader />
     <Nuxt />
   </div>
 </template>
 
 <script>
-import TheNavbar from '~/components/TheNavbar'
+import TheHeader from 'components/TheHeader'
 
 export default {
-  components: { TheNavbar }
+  components: { TheHeader }
 }
 </script>
