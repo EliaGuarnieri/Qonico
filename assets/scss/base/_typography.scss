@@ -16,18 +16,6 @@ body {
   line-height: 1;
   font-weight: 900;
   margin-bottom: 0.5em;
-
-  &--centered {
-    @extend .title;
-
-    text-align: center;
-  }
-}
-
-/* Display font style */
-.display {
-  font-size: 12rem;
-  letter-spacing: -2px;
 }
 
 /* H1 font style */
