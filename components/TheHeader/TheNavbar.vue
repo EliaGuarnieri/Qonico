@@ -62,6 +62,7 @@ export default {
   position: relative;
   justify-content: space-between;
   align-items: center;
+  background-color: $black;
   z-index: 9999;
 
   .menu-toggle {
