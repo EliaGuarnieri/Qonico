@@ -1,3 +1,5 @@
+import { resolve } from 'path'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -33,6 +35,12 @@ export default {
         href: 'https://fonts.googleapis.com/css2?family=Quicksand:wght@300;700&family=Roboto+Mono:wght@700&display=swap'
       }
     ]
+  },
+
+  alias: {
+    images: resolve(__dirname, './assets/images'),
+    components: resolve(__dirname, './components'),
+    elements: resolve(__dirname, './components/elements')
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
