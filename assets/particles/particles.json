@@ -48,10 +48,10 @@
       },
       "onHover": {
         "enable": true,
-        "mode": "repulse",
+        "mode": "attract",
         "parallax": {
-          "enable": false,
-          "force": 2,
+          "enable": true,
+          "force": 100,
           "smooth": 10
         }
       },
@@ -301,7 +301,7 @@
       "animation": {
         "h": {
           "count": 0,
-          "enable": true,
+          "enable": false,
           "offset": 0,
           "speed": 1,
           "sync": true
@@ -430,7 +430,7 @@
       },
       "random": false,
       "size": false,
-      "speed": 2,
+      "speed": 0.5,
       "straight": false,
       "trail": {
         "enable": false,
@@ -449,7 +449,7 @@
         "factor": 1000
       },
       "limit": 0,
-      "value": 3
+      "value": 50
     },
     "opacity": {
       "random": {
@@ -514,12 +514,12 @@
       },
       "value": {
         "min": 1,
-        "max": 20
+        "max": 10
       },
       "animation": {
         "count": 0,
         "enable": true,
-        "speed": 3,
+        "speed": 1,
         "sync": false,
         "destroy": "none",
         "minimumValue": 1,
