@@ -76,7 +76,8 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxt/content',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    ['cookie-universal-nuxt', { alias: 'cookies' }]
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
