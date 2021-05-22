@@ -1,0 +1,88 @@
+@keyframes cookieTranslate {
+  0% {
+    transform: translateX(0)
+  }
+
+  50% {
+    transform: translateX(calc(100% - 1em))
+  }
+
+  100% {
+    transform: translateX(0)
+  }
+}
+
+@keyframes cookieSpin {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  50% {
+    transform: rotate(3600deg)
+  }
+
+  100% {
+    transform: rotate(0deg)
+  }
+}
+
+@keyframes cookieRotate {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  50% {
+    transform: rotate(720deg)
+  }
+
+  100% {
+    transform: rotate(0deg)
+  }
+}
+
+@keyframes cookiePuff {
+  0% {
+    opacity: 0;
+    transform: translateX(2em)
+  }
+
+  34% {
+    opacity: 0;
+    transform: translateX(1em)
+  }
+
+  38% {
+    opacity: 1;
+    transform: translateX(2em)
+  }
+
+  42% {
+    opacity: 0;
+    transform: translateX(2em)
+  }
+
+  50% {
+    opacity: 0;
+    transform: translateX(-2em) scaleX(-1)
+  }
+
+  84% {
+    opacity: 0;
+    transform: translateX(-2em) scaleX(-1)
+  }
+
+  88% {
+    opacity: 1;
+    transform: translateX(-2em) scaleX(-1)
+  }
+
+  92% {
+    opacity: 0;
+    transform: translateX(-1em) scaleX(-1)
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(1em)
+  }
+}
