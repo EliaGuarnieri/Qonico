@@ -1,0 +1,14 @@
+/*! Mixins */
+
+/* Media Queries */
+@mixin for-tablet {
+  @media (min-width: 800px) {
+    @content;
+  }
+}
+
+@mixin for-desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
