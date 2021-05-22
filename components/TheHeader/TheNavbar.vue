@@ -1,35 +1,36 @@
 <template>
-  <div class="navbar container">
-    <div class="logo">
-      <p>Logo</p>
-    </div>
-
-    <button
-      class="menu-toggle"
-      @click="isOpen = !isOpen"
-    />
-    <transition name="slide-fade">
-      <nav
-        v-if="isOpen"
-        class="nav"
-      >
-        <ul class="nav__list container">
-          <li
-            v-for="(item, index) in items"
-            :key="index"
-            class="nav__item"
-          >
-            <NuxtLink
-              class="nav__link"
-              :to="item.url"
+  <div class="navbar">
+    <div class="container row">
+      <div class="logo">
+        <p>Logo</p>
+      </div>
+      <button
+        class="menu-toggle"
+        @click="isOpen = !isOpen"
+      />
+      <transition name="slide-fade">
+        <nav
+          v-if="isOpen"
+          class="nav"
+        >
+          <ul class="nav__list container">
+            <li
+              v-for="(item, index) in items"
+              :key="index"
+              class="nav__item"
             >
-              {{ item.name }}
-            </NuxtLink>
-          </li>
-        </ul>
-        <SocialList class="container" />
-      </nav>
-    </transition>
+              <NuxtLink
+                class="nav__link"
+                :to="item.url"
+              >
+                {{ item.name }}
+              </NuxtLink>
+            </li>
+          </ul>
+          <SocialList class="container" />
+        </nav>
+      </transition>
+    </div>
   </div>
 </template>
 
