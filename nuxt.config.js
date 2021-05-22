@@ -50,7 +50,8 @@ export default {
   // Inject scss variables Globally
   styleResources: {
     scss: [
-      '~/assets/scss/abstracts/_variables.scss'
+      '~/assets/scss/abstracts/_variables.scss',
+      '~/assets/scss/abstracts/_mixins.scss'
     ]
   },
 
