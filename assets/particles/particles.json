@@ -21,7 +21,7 @@
     "enable": false
   },
   "fullScreen": {
-    "enable": true,
+    "enable": false,
     "zIndex": -1
   },
   "detectRetina": true,
@@ -139,7 +139,7 @@
             }
           },
           "collisions": {
-            "enable": false,
+            "enable": true,
             "bounce": {
               "horizontal": {
                 "random": {}
@@ -157,7 +157,7 @@
           },
           "move": {
             "outModes": {
-              "default": "destroy"
+              "default": "bouce"
             },
             "speed": 2,
             "angle": {},
