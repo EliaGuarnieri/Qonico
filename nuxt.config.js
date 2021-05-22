@@ -38,6 +38,7 @@ export default {
   },
 
   alias: {
+    assets: resolve(__dirname, './assets'),
     images: resolve(__dirname, './assets/images'),
     components: resolve(__dirname, './components'),
     elements: resolve(__dirname, './components/elements')
