@@ -8,7 +8,7 @@
         class="menu-toggle"
         @click="isOpen = !isOpen"
       />
-      <transition name="slide-fade">
+      <transition name="slide-fade-left">
         <nav
           v-if="isOpen"
           class="nav"
@@ -50,7 +50,7 @@ export default {
     isOpen: false,
     items: [
       { name: 'home', url: '/' },
-      { name: 'servizi', url: '#' },
+      { name: 'servizi', url: '#servizi' },
       { name: 'contattaci', url: '#' }
     ]
   })
@@ -58,13 +58,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+button {
+  background-color: $blue;
+}
 .navbar {
   display: flex;
   position: relative;
   justify-content: space-between;
   align-items: center;
   background-color: $black;
-  z-index: 9999;
+  z-index: 9997;
 
   .menu-toggle {
     width: 48px;
