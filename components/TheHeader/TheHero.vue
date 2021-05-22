@@ -1,11 +1,13 @@
 <template>
   <div
     id="hero"
-    class="hero container"
+    class="hero"
   >
-    <h1 class="title">
-      Il Futuro<br> è oggi.
-    </h1>
+    <div class="container">
+      <h1 class="title">
+        Il Futuro<br> è oggi.
+      </h1>
+    </div>
   </div>
 </template>
 
@@ -34,6 +36,10 @@ export default {
 .hero {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: calc(100vh - 60px);
+}
+.container {
+  position: absolute;
 }
 </style>
