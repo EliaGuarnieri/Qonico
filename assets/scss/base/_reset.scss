@@ -38,3 +38,18 @@ img {
   max-width: 100%;
   border-style: none;
 }
+
+button {
+  display: inline-block;
+  border: none;
+  padding: 1rem 1.5rem;
+  margin: 0;
+  text-decoration: none;
+  font-family: $text-font;
+  background-color: transparent;
+  cursor: pointer;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: all .25s ease-in-out;
+}
