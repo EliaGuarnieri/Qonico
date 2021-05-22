@@ -1,5 +1,8 @@
 <template>
-  <section class="section">
+  <section
+    id="servizi"
+    class="section"
+  >
     <div class="cards container row">
       <TheCard
         v-for="(servizio, index) in servizi"
