@@ -58,7 +58,8 @@ export default {
   overflow: hidden;
   color: black;
   background: $beige;
-  padding: 1em 0;
+  padding-top: 1em;
+  padding-bottom: 2em;
   z-index: 9999;
   width: 100%;
   display: flex;
@@ -76,7 +77,6 @@ export default {
   &__content {
     display: grid;
     grid-row-gap: 1.8rem;
-    margin: 1rem 0;
     align-self: center;
   }
 
@@ -115,6 +115,7 @@ export default {
   }
 
   &__button {
+    font-size: 1.4rem;
     background-color: $blue;
     color: $white;
 
@@ -123,6 +124,7 @@ export default {
     }
 
     &--secondary {
+      font-size: 1.4rem;
       color: $blue;
       margin-right: 1.8rem;
 
