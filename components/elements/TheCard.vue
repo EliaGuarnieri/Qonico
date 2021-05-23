@@ -33,29 +33,5 @@ export default {
   &__title {
     color: $blue;
   }
-
-  @include for-tablet {
-    width: calc(50% - calc(#{$gutter} / 2));
-  }
-
-  @include for-desktop {
-    width: calc(33% - calc(#{$gutter} / 2));
-  }
-}
-
-.card + .card {
-  margin-top: $gutter;
-
-  &:nth-child(2) {
-    @include for-tablet {
-      margin-top: 0;
-    }
-  }
-
-  &:nth-child(3) {
-    @include for-desktop {
-      margin-top: 0;
-    }
-  }
 }
 </style>

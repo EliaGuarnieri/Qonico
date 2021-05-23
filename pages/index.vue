@@ -1,14 +1,14 @@
 <template>
   <main>
-    <CardSection />
+    <SectionServizi />
   </main>
 </template>
 
 <script>
-import CardSection from 'components/CardsSection'
+import SectionServizi from 'components/sections/SectionServizi'
 
 export default {
-  components: { CardSection },
+  components: { SectionServizi },
   head () {
     return {
       script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }]
