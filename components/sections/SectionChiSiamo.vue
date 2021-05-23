@@ -4,7 +4,7 @@
     class="section"
   >
     <div class="chi-siamo container row">
-      <div class="cit">
+      <div class="chi-siamo__cit">
         <div class="chi-siamo__triangle" />
         <h2 class="title chi-siamo__title">
           Lorem ipsum dolor sit amer.
