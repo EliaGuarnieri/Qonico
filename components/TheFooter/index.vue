@@ -5,7 +5,7 @@
         <p>&copy; {{ new Date().getFullYear() }} • made with <span class="heart">♥</span> by Veri Web</p>
       </div>
       <button
-        class="cookies-settings"
+        class="button cookies-settings"
         @click="toggleConsent"
       >
         Impostazioni cookies
@@ -54,6 +54,10 @@ export default {
   &__content {
     flex-flow: column-reverse;
     align-items: center;
+
+    @include for-tablet {
+      flex-flow: row;
+    }
   }
 
   &__copyright {
@@ -61,6 +65,7 @@ export default {
   }
 }
 .cookies-settings {
+  font-size: 1.4rem;
   color: $blue;
 
   &:hover {
