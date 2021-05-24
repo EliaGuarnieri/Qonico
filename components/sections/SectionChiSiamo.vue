@@ -1,8 +1,5 @@
 <template>
-  <section
-    id="chi-siamo"
-    class="section"
-  >
+  <section class="section">
     <div class="chi-siamo container row">
       <div class="chi-siamo__cit">
         <div class="chi-siamo__triangle" />

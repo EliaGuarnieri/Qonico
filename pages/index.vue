@@ -1,8 +1,8 @@
 <template>
   <main>
-    <SectionServizi />
-    <SectionChiSiamo />
-    <SectionContatti />
+    <SectionServizi id="servizi" />
+    <SectionChiSiamo id="chi-siamo" />
+    <SectionContatti id="contatti" />
   </main>
 </template>
 

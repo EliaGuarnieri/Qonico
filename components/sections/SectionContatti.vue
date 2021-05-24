@@ -1,8 +1,5 @@
 <template>
-  <section
-    id="contatti"
-    class="section"
-  >
+  <section class="section">
     <div class="contatti container row">
       <div class="contatti__direct">
         <div class="contatti__triangle" />
