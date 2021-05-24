@@ -32,7 +32,7 @@ export default {
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Quicksand:wght@300;700&family=Roboto+Mono:wght@700&display=swap'
+        href: 'https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Roboto+Mono:wght@700&display=swap'
       }
     ]
   },
