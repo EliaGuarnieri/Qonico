@@ -7,7 +7,8 @@
         </div>
       </div>
       <div class="cookie-consent__body">
-        Questo sito utilizza cookie, ma solo in forma anonima e per aiutarci a capire qualcosa in più sulle persone che vengono a farci visita. Se vuoi saperne di più, puoi leggere nel dettaglio la nostra
+        <!-- eslint-disable-next-line vue/singleline-html-element-content-newline -->
+        Questo sito utilizza cookie, ma solo in forma anonima e per aiutarci a capire qualcosa in più sulle persone che vengono a farci visita. Se vuoi saperne di più, puoi leggere nel dettaglio la nostra <NuxtLink to="/">informativa sulla privacy</NuxtLink>.
       </div>
       <div class="cookie-consent__footer">
         <button
