@@ -1,5 +1,19 @@
 /*! Slide-fade animation */
 
+/* top */
+.slide-fade-top-enter-active {
+  transition: all .3s ease;
+}
+
+.slide-fade-top-leave-active {
+  transition: all .25s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-top-enter, .slide-fade-top-leave-to {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
 /* left */
 .slide-fade-left-enter-active {
   transition: all .3s ease;
