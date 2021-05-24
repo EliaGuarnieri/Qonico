@@ -99,6 +99,7 @@ button {
       display: block;
       padding: 1em 0;
       transition: color 0.25s ease-in-out;
+      color: $white;
 
       /*! Si attivano tutti i link, capire perché */
       &.is-active,
