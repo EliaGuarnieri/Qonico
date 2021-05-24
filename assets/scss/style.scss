@@ -1,13 +1,10 @@
 @charset 'UTF-8';
 
-// 1. Configuration and helpers
-@import 'abstracts/variables';
-
-// 2. Animation
+// 1. Animation
 @import 'animations/cookie-animation';
 @import 'animations/slide-fade';
 
-// 3. Base stuff
+// 2. Base stuff
 @import 'base/helpers';
 @import 'base/reset';
 @import 'base/typography';
