@@ -8,9 +8,9 @@
         class="menu-toggle"
         @click="isOpen = !isOpen"
       />
-      <transition name="slide-fade-left">
+      <transition :name="isDesktop ? '' : 'slide-fade-left'">
         <nav
-          v-if="isOpen"
+          v-show="isOpen || isDesktop"
           class="nav"
         >
           <ul class="nav__list container">
@@ -27,7 +27,7 @@
               </NuxtLink>
             </li>
           </ul>
-          <SocialList class="container" />
+          <SocialList :class="{container: !isDesktop}" />
         </nav>
       </transition>
     </div>
@@ -44,16 +44,34 @@ import SocialList from 'elements/SocialList.vue'
  * 2. https://www.npmjs.com/package/vue-scrollto
  * 3. https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-router#scrollbehavior
  */
+
 export default {
   components: { SocialList },
   data: () => ({
     isOpen: false,
+    isDesktop: false,
     items: [
       { name: 'home', url: '/' },
       { name: 'servizi', url: '#servizi' },
-      { name: 'contattaci', url: '#' }
+      { name: 'chi siamo', url: '#chi-siamo' },
+      { name: 'contattaci', url: '#contatti' }
     ]
-  })
+  }),
+  mounted () {
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize)
+    })
+    this.isDesktop = window.innerWidth >= 800
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.onResize)
+  },
+  methods: {
+    onResize () {
+      this.isDesktop = window.innerWidth >= 800
+    }
+  }
+
 }
 </script>
 
@@ -72,6 +90,10 @@ button {
   .menu-toggle {
     width: 48px;
     height: 48px;
+
+    @include for-tablet {
+      display: none;
+    }
   }
 
   .nav {
@@ -93,6 +115,15 @@ button {
       line-height: 1;
       letter-spacing: 1.25px;
       text-transform: uppercase;
+
+      @include for-tablet {
+        display: flex;
+
+        &::after {
+          content: "•";
+          margin: 0 $gutter / 2;
+        }
+      }
     }
 
     &__link {
@@ -110,6 +141,22 @@ button {
       &:hover {
         color: $blue;
       }
+
+      @include for-tablet {
+        display: flex;
+        margin-left: 1.8rem;
+        padding: 0;
+      }
+    }
+
+    @include for-tablet {
+      position: relative;
+      flex-flow: row;
+      align-items: center;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 0;
     }
   }
 }
