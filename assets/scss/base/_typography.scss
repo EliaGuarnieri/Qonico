@@ -64,6 +64,14 @@ small {
   letter-spacing: 0.25px;
 }
 
+a {
+  color: $blue;
+
+  &:hover {
+    color: $blue-light;
+  }
+}
+
 /* Button font style */
 .button {
   font-size: 1.8rem;
