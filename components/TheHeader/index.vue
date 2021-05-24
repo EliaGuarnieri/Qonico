@@ -11,7 +11,6 @@ import TheNavbar from './TheNavbar.vue'
 
 export default {
   components: { TheNavbar, TheHero }
-
 }
 </script>
 
