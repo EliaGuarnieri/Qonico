@@ -82,7 +82,7 @@ export default {
     left: 5%;
     bottom: 2.8rem;
     width: 10rem;
-    height: 3 / 2 * 5rem;
+    height: calc(3 / 2 * 5rem);
     background-color: $blue;
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     transform: rotateZ(35deg);
