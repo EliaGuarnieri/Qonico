@@ -1,11 +1,12 @@
 <template>
   <div class="card">
-    <div
+    <lottie
       class="card__media"
-      :class="{'is-right': isOdd}"
-    >
-      <img :src="require(`images/${image}`)">
-    </div>
+      :width="300"
+      :height="300"
+      :options="lottieOptions"
+      @animCreated="handleAnimation"
+    />
     <div class="card__content">
       <h3 class="title card__title">
         {{ title }}
@@ -18,13 +19,16 @@
 </template>
 
 <script>
+import lottie from 'vue-lottie/src/lottie.vue'
+
 export default {
+  components: { lottie },
   props: {
     index: {
       type: Number,
       required: true
     },
-    image: {
+    animationFile: {
       type: String,
       required: true
     },
@@ -37,9 +41,17 @@ export default {
       default: null
     }
   },
+  data: () => ({
+    anim: null
+  }),
   computed: {
-    isOdd () {
-      return this.index % 2 !== 0
+    lottieOptions () {
+      return { animationData: require(`assets/lottie/${this.animationFile}`) }
+    }
+  },
+  methods: {
+    handleAnimation (anim) {
+      this.anim = anim
     }
   }
 }
@@ -52,8 +64,7 @@ export default {
 
   &__media {
     display: inline-block;
-    margin: 0 auto $gutter;
-    min-width: 20.5rem;
+    min-width: 30rem;
   }
 
   &__title {
@@ -68,12 +79,13 @@ export default {
 
     &__media {
       margin: 0 $gutter 0 0;
+      width: 50%;
     }
-  }
 
-  .is-right {
-    order: 1;
-    margin: 0 0 0 $gutter;
+    &__content {
+      order: -1;
+      margin: 0 $gutter 0 0;
+    }
   }
 }
 .card + .card {
