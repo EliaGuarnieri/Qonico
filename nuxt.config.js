@@ -71,6 +71,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    'nuxt-compress',
     '@nuxtjs/svg'
   ],
 
@@ -78,6 +79,17 @@ export default {
   modules: [
     '@nuxt/content',
     '@nuxtjs/style-resources',
+    [
+      'nuxt-compress',
+      {
+        gzip: {
+          threshold: 0
+        },
+        brotli: {
+          threshold: 0
+        }
+      }
+    ],
     ['cookie-universal-nuxt', { alias: 'cookies' }]
   ],
 
