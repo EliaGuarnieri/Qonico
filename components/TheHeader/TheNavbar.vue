@@ -20,8 +20,7 @@
               class="nav__item"
             >
               <a
-                v-scroll-to="{el: item.url, offset: -65, onStart: toggleMenu}"
-                href="#"
+                :href="item.anchor"
                 class="nav__link"
               >
                 {{ item.name }}
@@ -56,10 +55,10 @@ export default {
     isOpen: false,
     isDesktop: false,
     items: [
-      { name: 'home', url: '#hero' },
-      { name: 'servizi', url: '#servizi' },
-      { name: 'chi siamo', url: '#chi-siamo' },
-      { name: 'contattaci', url: '#contatti' }
+      { name: 'home', anchor: '#hero' },
+      { name: 'servizi', anchor: '#servizi' },
+      { name: 'chi siamo', anchor: '#chi-siamo' },
+      { name: 'contattaci', anchor: '#contatti' }
     ],
     scrolled: 0
   }),
@@ -167,6 +166,7 @@ button {
       background-color: $blue;
       mix-blend-mode: multiply;
       width: 0%;
+      pointer-events: none;
     }
 
     &__link {

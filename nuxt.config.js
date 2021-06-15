@@ -78,7 +78,6 @@ export default {
   modules: [
     '@nuxt/content',
     '@nuxtjs/style-resources',
-    'vue-scrollTo/nuxt',
     ['cookie-universal-nuxt', { alias: 'cookies' }]
   ],
 
