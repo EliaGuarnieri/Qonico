@@ -1,24 +1,29 @@
 <template>
   <section class="section">
-    <div class="cards container row">
-      <TheCard
-        v-for="(servizio, index) in servizi"
-        :key="index"
-        :index="index"
-        :animation-file="servizio.animationFile"
-        :title="servizio.title"
-        :body="servizio.body"
-        :play="servizio.play"
-      />
-    </div>
+    <LazyHydrate when-idle>
+      <div class="cards container row">
+        <TheCard
+          v-for="(servizio, index) in servizi"
+          :key="index"
+          :index="index"
+          :animation-file="servizio.animationFile"
+          :title="servizio.title"
+          :body="servizio.body"
+          :play="servizio.play"
+        />
+      </div>
+    </LazyHydrate>
   </section>
 </template>
 
 <script>
-import TheCard from 'elements/TheCard'
+import LazyHydrate from 'vue-lazy-hydration'
 
 export default {
-  components: { TheCard },
+  components: {
+    LazyHydrate,
+    TheCard: () => import('elements/TheCard')
+  },
   data: () => ({
     servizi: [
       {
