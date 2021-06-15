@@ -6,7 +6,7 @@
       </div>
       <button
         class="menu-toggle"
-        @click="isOpen = !isOpen"
+        @click="toggleMenu"
       />
       <transition :name="isDesktop ? '' : 'slide-fade-left'">
         <nav
@@ -19,13 +19,18 @@
               :key="index"
               class="nav__item"
             >
-              <NuxtLink
+              <a
+                v-scroll-to="{el: item.url, offset: -65, onStart: toggleMenu}"
+                href="#"
                 class="nav__link"
-                :to="item.url"
               >
                 {{ item.name }}
-              </NuxtLink>
+              </a>
             </li>
+            <div
+              ref="overlay"
+              class="overlay"
+            />
           </ul>
           <SocialList :class="{container: !isDesktop}" />
         </nav>
@@ -51,27 +56,51 @@ export default {
     isOpen: false,
     isDesktop: false,
     items: [
-      { name: 'home', url: '/' },
+      { name: 'home', url: '#hero' },
       { name: 'servizi', url: '#servizi' },
       { name: 'chi siamo', url: '#chi-siamo' },
       { name: 'contattaci', url: '#contatti' }
-    ]
+    ],
+    scrolled: 0
   }),
+  watch: {
+    scrolled (newValue, oldValue) {
+      /* ! correggere percentuale */
+      this.$refs.overlay.style.width = `${this.scrolled}%`
+    }
+  },
   mounted () {
-    this.$nextTick(() => {
-      window.addEventListener('resize', this.onResize)
-    })
-    this.isDesktop = window.innerWidth >= 800
+    this.addEventListener()
   },
   beforeDestroy () {
-    window.removeEventListener('resize', this.onResize)
+    this.removeEventListener()
   },
   methods: {
+    addEventListener () {
+      this.$nextTick(() => {
+        window.addEventListener('resize', this.onResize)
+        window.addEventListener('scroll', this.onScroll)
+      })
+      this.isDesktop = window.innerWidth >= 800
+    },
+    removeEventListener () {
+      window.removeEventListener('resize', this.onResize)
+      window.removeEventListener('scroll', this.onScroll)
+    },
     onResize () {
       this.isDesktop = window.innerWidth >= 800
+    },
+    onScroll () {
+      const h = document.documentElement
+      const b = document.body
+      const st = 'scrollTop'
+      const sh = 'scrollHeight'
+      this.scrolled = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100
+    },
+    toggleMenu () {
+      this.isOpen = !this.isOpen
     }
   }
-
 }
 </script>
 
@@ -81,7 +110,9 @@ button {
 }
 .navbar {
   display: flex;
-  position: relative;
+  position: fixed;
+  width: 100%;
+  height: 65px;
   justify-content: space-between;
   align-items: center;
   background-color: $black;
@@ -115,15 +146,27 @@ button {
       line-height: 1;
       letter-spacing: 1.25px;
       text-transform: uppercase;
+      position: relative;
 
       @include for-tablet {
         display: flex;
 
         &::after {
           content: "•";
-          margin: 0 $gutter / 2;
+          margin: 0 calc(#{$gutter} / 2);
         }
       }
+    }
+
+    .overlay {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      background-color: $blue;
+      mix-blend-mode: multiply;
+      width: 0%;
     }
 
     &__link {
@@ -132,9 +175,7 @@ button {
       transition: color 0.25s ease-in-out;
       color: $white;
 
-      /*! Si attivano tutti i link, capire perché */
-      &.is-active,
-      .is-exact-active {
+      &.is-active {
         color: $blue;
       }
 
