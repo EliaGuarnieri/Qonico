@@ -32,6 +32,10 @@ export default {
       type: String,
       required: true
     },
+    play: {
+      type: Boolean,
+      default: false
+    },
     title: {
       type: String,
       default: null
@@ -42,16 +46,34 @@ export default {
     }
   },
   data: () => ({
-    anim: null
+    anim: null,
+    file: null
   }),
+  async fetch () {
+    this.file = await require(`static/lottie/${this.animationFile}`)
+  },
   computed: {
     lottieOptions () {
-      return { animationData: require(`assets/lottie/${this.animationFile}`) }
+      return {
+        animationData: this.file,
+        autoplay: false
+      }
+    }
+  },
+  watch: {
+    play (newVal, oldVal) {
+      newVal ? this.playAnim() : this.pauseAnim()
     }
   },
   methods: {
     handleAnimation (anim) {
       this.anim = anim
+    },
+    playAnim () {
+      this.anim.play()
+    },
+    pauseAnim () {
+      this.anim.pause()
     }
   }
 }
