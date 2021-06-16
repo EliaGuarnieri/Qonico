@@ -4,10 +4,17 @@
       <div class="logo">
         <p>Logo</p>
       </div>
-      <button
+      <div
         class="menu-toggle"
         @click="toggleMenu"
-      />
+      >
+        <lottie
+          :width="48"
+          :height="48"
+          :options="lottieOptions"
+          @animCreated="handleAnimation"
+        />
+      </div>
       <transition :name="isDesktop ? '' : 'slide-fade-left'">
         <nav
           v-show="isOpen || isDesktop"
@@ -40,6 +47,7 @@
 
 <script>
 import SocialList from 'elements/SocialList.vue'
+import lottie from 'vue-lottie/src/lottie.vue'
 
 /**
  *# For scrolling behaviour:
@@ -50,7 +58,7 @@ import SocialList from 'elements/SocialList.vue'
  */
 
 export default {
-  components: { SocialList },
+  components: { SocialList, lottie },
   data: () => ({
     isOpen: false,
     isDesktop: false,
@@ -60,8 +68,22 @@ export default {
       { name: 'chi siamo', anchor: '#chi-siamo' },
       { name: 'contattaci', anchor: '#contatti' }
     ],
+    anim: null,
+    file: null,
     scrolled: 0
   }),
+  async fetch () {
+    this.file = await require('static/lottie/hamburger.json')
+  },
+  computed: {
+    lottieOptions () {
+      return {
+        animationData: this.file,
+        autoplay: false,
+        loop: false
+      }
+    }
+  },
   watch: {
     scrolled (newValue, oldValue) {
       /* ! correggere percentuale */
@@ -98,14 +120,26 @@ export default {
     },
     toggleMenu () {
       this.isOpen = !this.isOpen
+      this.play()
+    },
+    handleAnimation (anim) {
+      this.anim = anim
+    },
+    play () {
+      if (this.isOpen) {
+        this.anim.playSegments([0, 13], true)
+      } else {
+        this.anim.playSegments([13, 0], true)
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-button {
-  background-color: $blue;
+::v-deep .shape {
+  fill: $blue;
+  stroke: $blue;
 }
 .navbar {
   display: flex;
@@ -120,6 +154,7 @@ button {
   .menu-toggle {
     width: 48px;
     height: 48px;
+    margin: 0 !important;
 
     @include for-tablet {
       display: none;
