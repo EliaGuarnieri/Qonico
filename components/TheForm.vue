@@ -37,39 +37,20 @@ export default {
     }
   },
   methods: {
-    encode (data) {
-      return Object.keys(data)
-        .map(
-          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
-        )
-        .join('&')
-    },
     handleSubmit () {
-      const postData = async () => {
-        const response = await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: this.encode({
-            'form-name': this.name,
-            ...this.form
-          })
-        })
-
-        return response
-      }
-
-      postData()
-        .then((response) => {
-          if (response.ok === true) {
-            // eslint-disable-next-line no-console
-            console.info('Submitted')
-          }
-        })
+      const formData = new FormData({
+        'form-name': this.name,
+        ...this.form
+      })
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'multipart/form-data' },
+        body: new URLSearchParams(formData).toString()
         // eslint-disable-next-line no-console
-        .catch(error => console.error(error))
+      }).then(() => console.log('Form successfully submitted')).catch(error =>
+        alert(error))
     }
   }
-
 }
 </script>
 
