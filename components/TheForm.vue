@@ -4,7 +4,7 @@
     :name="name"
     method="post"
     data-netlify="true"
-    data-netlify-honeypot="bot-field"
+    netlify-honeypot="bot-field"
     @submit.prevent="handleSubmit"
   >
     <input
@@ -37,20 +37,27 @@ export default {
     }
   },
   methods: {
+    encode (data) {
+      return Object.keys(data)
+        .map(
+          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join('&')
+    },
     handleSubmit () {
-      const formData = new FormData()
-      formData.append('form-name', this.name)
-      formData.append('nome', this.form.nome)
-      formData.append('email', this.form.email)
-      formData.append('messaggio', this.form.messaggio)
-
       fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'multipart/form-data' },
-        body: new URLSearchParams(formData).toString()
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: this.encode({
+          'form-name': 'contactForm',
+          ...this.form
+        })
         // eslint-disable-next-line no-console
-      }).then(() => console.log('Form successfully submitted')).catch(error =>
-        alert(error))
+      }).then(() => console.log('Form successfully submitted', this.form))
+      // eslint-disable-next-line no-console
+        .catch(error => console.error(error))
     }
   }
 }
