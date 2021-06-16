@@ -38,10 +38,11 @@ export default {
   },
   methods: {
     handleSubmit () {
-      const formData = new FormData({
-        'form-name': this.name,
-        ...this.form
-      })
+      const formData = new FormData()
+      formData.append('form-name', this.name)
+      for (const value in this.form) {
+        formData.append(value, this.form[value])
+      }
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'multipart/form-data' },
