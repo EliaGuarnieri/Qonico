@@ -1,6 +1,7 @@
 <template>
   <form
     class="form"
+    action="thank-you"
     :name="name"
     method="post"
     data-netlify="true"
@@ -45,6 +46,11 @@ export default {
         .join('&')
     },
     handleSubmit () {
+      const formData = {
+        Nome: this.form.nome,
+        Email: this.form.email,
+        Messaggio: this.form.messaggio
+      }
       fetch('/', {
         method: 'POST',
         headers: {
@@ -52,10 +58,11 @@ export default {
         },
         body: this.encode({
           'form-name': this.name,
-          ...this.form
+          ...formData
         })
         // eslint-disable-next-line no-console
-      })/* .then(() => console.log('Form successfully submitted', this.form)) */
+      }).then(() => console.log('form submitted'))
+
       // eslint-disable-next-line no-console
         .catch(error => console.error(error))
     }
