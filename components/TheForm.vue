@@ -4,7 +4,7 @@
     :name="name"
     method="post"
     data-netlify="true"
-    netlify-honeypot="bot-field"
+    data-netlify-honeypot="bot-field"
     @submit.prevent="handleSubmit"
   >
     <input
@@ -51,11 +51,11 @@ export default {
           'Content-Type': 'application/x-www-form-urlencoded'
         },
         body: this.encode({
-          'form-name': 'contactForm',
+          'form-name': this.name,
           ...this.form
         })
         // eslint-disable-next-line no-console
-      }).then(() => console.log('Form successfully submitted', this.form))
+      })/* .then(() => console.log('Form successfully submitted', this.form)) */
       // eslint-disable-next-line no-console
         .catch(error => console.error(error))
     }
