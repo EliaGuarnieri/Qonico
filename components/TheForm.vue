@@ -1,40 +1,81 @@
 <template>
-  <form
-    class="form"
-    action="thank-you"
-    :name="name"
-    method="post"
-    data-netlify="true"
-    data-netlify-honeypot="bot-field"
-    @submit.prevent="handleSubmit"
-  >
-    <input
-      type="hidden"
-      name="form-name"
-      :value="name"
+  <FormWrapper :validator="$v.form">
+    <form
+      class="form"
+      :name="name"
+      method="post"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      novalidate
+      @submit.prevent="handleSubmit"
     >
-    <slot class="form__content" />
-    <div class="form__footer">
-      <button
-        class="button"
-        type="submit"
+      <input
+        type="hidden"
+        name="form-name"
+        :value="name"
       >
-        Invia
-      </button>
-    </div>
-  </form>
+      <InputName
+        v-model="form.nome"
+        class="form__content"
+      />
+      <InputEmail
+        v-model="form.email"
+        class="form__content"
+      />
+      <InputMessaggio
+        v-model="form.messaggio"
+        class="form__content"
+      />
+      <CheckBox v-model="form.privacy" />
+
+      <div class="form__footer">
+        <button
+          class="button"
+          type="submit"
+        >
+          Invia
+        </button>
+      </div>
+    </form>
+  </formwrapper>
 </template>
 
 <script>
+import { required, email, sameAs } from 'vuelidate/lib/validators'
+import { templates } from 'vuelidate-error-extractor'
+import InputName from '~/components/elements/InputName.vue'
+import InputEmail from '~/components/elements/InputEmail.vue'
+import InputMessaggio from '~/components/elements/InputMessaggio.vue'
+import CheckBox from '~/components/elements/CheckBox.vue'
+
 export default {
+  components: {
+    FormWrapper: templates.FormWrapper,
+    InputName,
+    InputEmail,
+    InputMessaggio,
+    CheckBox
+  },
   props: {
-    form: {
-      type: Object,
-      required: true
-    },
     name: {
       type: String,
       required: true
+    }
+  },
+  data: () => ({
+    form: {
+      nome: '',
+      email: '',
+      messaggio: '',
+      privacy: false
+    }
+  }),
+  validations: {
+    form: {
+      nome: { required },
+      email: { required, email },
+      messaggio: { required },
+      privacy: { privacy: sameAs(() => true) }
     }
   },
   methods: {
@@ -46,6 +87,9 @@ export default {
         .join('&')
     },
     handleSubmit () {
+      this.$v.form.$touch()
+      if (this.$v.form.$pending || this.$v.form.$error) { return }
+
       const formData = {
         Nome: this.form.nome,
         Email: this.form.email,

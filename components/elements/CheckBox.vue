@@ -1,23 +1,35 @@
+<!-- eslint-disable vue/no-unused-vars -->
 <template>
   <div class="checkbox">
-    <label class="wrapper">
-      <input
-        class="checkbox"
-        type="checkbox"
-        :checked="isChecked"
-        :value="value"
-        @change="updateInput"
-      >
-      <span class="checkmark" />
-      <!-- eslint-disable-next-line vue/no-v-html -->
-
-    </label>
-    <slot />
+    <FormGroup
+      name="privacy"
+      :is-checkbox="true"
+      :messages="errorMessages"
+    >
+      <template slot-scope="{ validator }">
+        <label class="wrapper">
+          <input
+            v-model="privacy"
+            class="checkbox"
+            type="checkbox"
+            :checked="isChecked"
+            @change="updateInput; validator.$reset()"
+          >
+          <span class="checkmark" />
+        </label>
+        <small>
+          <!-- eslint-disable-next-line vue/singleline-html-element-content-newline -->
+          Dichiaro di aver letto l'<NuxtLink to=" ">informativa sulla privacy</NuxtLink> e acconsento al trattamento dei miei dati.
+        </small>
+      </template>
+    </FormGroup>
   </div>
 </template>
 
 <script>
+import FormGroup from '~/components/elements/FormGroup.vue'
 export default {
+  components: { FormGroup },
   model: {
     prop: 'modelValue',
     event: 'change'
@@ -40,6 +52,11 @@ export default {
       default: false
     }
   },
+  data: () => ({
+    errorMessages: {
+      privacy: 'Per favore, abbiamo bisogno del tuo consenso 🙏. Non avere paura ci teniamo alla privacy!'
+    }
+  }),
   computed: {
     isChecked () {
       if (this.modelValue instanceof Array) {
@@ -47,6 +64,14 @@ export default {
       }
       // Note that `true-value` and `false-value` are camelCase in the JS
       return this.modelValue === this.trueValue
+    },
+    privacy: {
+      get () {
+        return this.value
+      },
+      set (value) {
+        this.$emit('change', value)
+      }
     }
   },
   methods: {

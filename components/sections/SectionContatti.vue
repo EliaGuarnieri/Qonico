@@ -10,35 +10,7 @@
         <SocialList />
       </div>
       <div class="contatti__form">
-        <TheForm
-          name="contatti-landing-page"
-          :form="form"
-        >
-          <TheInput
-            v-model="form.nome"
-            type="text"
-            label="Nome"
-            placeholder="Mario Rossi"
-          />
-          <TheInput
-            v-model="form.email"
-            type="text"
-            label="Email"
-            placeholder="mario.rossi@gmail.com"
-          />
-          <TheInput
-            v-model="form.messaggio"
-            type="textarea"
-            label="Messaggio"
-            placeholder="Ciao! Avrei bisogno di..."
-          />
-          <CheckBox v-model="form.privacy">
-            <small>
-              <!-- eslint-disable-next-line vue/singleline-html-element-content-newline -->
-              Dichiaro di aver letto l'<NuxtLink to="/">informativa sulla privacy</NuxtLink> e acconsento al trattamento dei miei dati.
-            </small>
-          </CheckBox>
-        </theform>
+        <TheForm name="contatti-landing-page" />
       </div>
     </div>
   </section>
@@ -47,19 +19,9 @@
 <script>
 import SocialList from 'elements/SocialList'
 import TheForm from 'components/TheForm'
-import TheInput from 'elements/TheInput'
-import CheckBox from 'elements/CheckBox'
 
 export default {
-  components: { SocialList, TheForm, TheInput, CheckBox },
-  data: () => ({
-    form: {
-      nome: '',
-      email: '',
-      messaggio: '',
-      privacy: false
-    }
-  })
+  components: { SocialList, TheForm }
 }
 </script>
 
