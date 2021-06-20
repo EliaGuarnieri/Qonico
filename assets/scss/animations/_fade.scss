@@ -1,0 +1,17 @@
+/*! Fade animation */
+
+// Fade for form error
+.fade-error-enter-active {
+  max-height: 60px;
+  transition: all .3s ease;
+}
+
+.fade-error-leave-active {
+  max-height: 60px;
+  transition: all .25s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.fade-error-enter, .fade-error-leave-to {
+  max-height: 0;
+  opacity: 0;
+}
