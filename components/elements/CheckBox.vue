@@ -124,18 +124,18 @@ export default {
   width: 1em;
   height: 1em;
   background: transparent;
-  border: 2px solid $beige;
+  border: 2px solid $white;
   border-radius: 3px;
   cursor: pointer;
   transition: all 250ms cubic-bezier(0.4, 0, 0.23, 1);
 }
 
 .wrapper:hover input ~ .checkmark {
-  background-color: $beige-light;
+  background-color: $white;
 }
 
 .wrapper input:checked ~ .checkmark {
-  border: 0.5em solid $beige;
+  border: 0.5em solid $white;
   animation: shrink-bounce 200ms cubic-bezier(0.4, 0, 0.23, 1);
 }
 

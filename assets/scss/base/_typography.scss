@@ -1,83 +1,83 @@
-/*! Typography */
-
-/* Basic typography */
+//! Typography
+// Basic typography
 body {
-  font-family: $text-font;
+  font-family: $font-family;
   line-height: 1.618;
   font-weight: 300;
-  color: $black;
+  color: $text-color;
   font-size: 1.8rem;
   letter-spacing: 0.5px;
 }
 
-/* Title default font style */
+// Title default font style
 .title {
-  font-family: $title-font;
   line-height: 1;
-  font-weight: 900;
+  font-weight: 700;
+  color: $title-color;
   margin-bottom: 0.5em;
 }
 
-/* H1 font style */
-h1 {
-  font-size: 8rem;
-  letter-spacing: -2px;
+// H1 font style
+.display {
+  font-size: 7.2rem;
+  letter-spacing: -0.5px;
+  margin-bottom: 0;
 }
 
-/* H2 font style */
-h2 {
-  font-size: 4.8rem;
+// H1 font style
+h1 {
+  font-size: 5.1rem;
   letter-spacing: -0.5px;
 }
 
-/* H3 font style */
+// H2 font style
+h2 {
+  font-size: 3.6rem;
+  letter-spacing: -0.25px;
+}
+
+// H3 font style
 h3 {
-  font-size: 3.2rem;
-  letter-spacing: 0.25px;
+  font-size: 2.6rem;
+  letter-spacing: 0.5px;
 }
 
-/* Subtitle font style */
-.subtitle {
-  font-size: 3.2rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-/* Paragraph font style */
+// Paragraph font style
 p+p {
   margin-top: 1em;
 }
 
-/* Link font style */
+// Link font style
 /* a:not([class]) {
 
 } */
 
-/* Strong font style */
+// Strong font style
 strong {
-  font-weight: 700;
+  font-weight: 600;
 }
 
-/* Small font style */
+// Small font style
 small {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   letter-spacing: 0.25px;
 }
 
 a {
-  color: $blue;
+  color: $text-color;
+  font-weight: 700;
+  transition: color .25s ease-in-out;
 
   &:hover {
-    color: $blue-light;
+    filter: hue-rotate(180deg);
   }
 }
 
-/* Button font style */
+// Button font style
 .button {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   font-weight: 700;
   line-height: 1;
   letter-spacing: 1.25px;
-  text-transform: uppercase;
   margin-bottom: 0;
 }

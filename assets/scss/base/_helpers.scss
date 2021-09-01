@@ -1,4 +1,4 @@
-/*! Helpers */
+//! Helpers
 .section {
   padding: $gutter-large 0;
 }
@@ -7,7 +7,19 @@
   position: relative;
   width: 90%;
   max-width: $max-width;
-  margin: 0 auto !important;
+  margin: 0 auto; // perché usavo !important?
+
+  &--full-width {
+    @extend .container;
+
+    width: 98%;
+    max-width: 98%;
+    border-radius: $radius;
+  }
+}
+
+.container--full-width>.container {
+  width: 92%
 }
 
 .row {
@@ -22,4 +34,8 @@
 
 .col+.col {
   margin-left: $gutter;
+}
+
+.bg-lime {
+  background-color: $lime
 }

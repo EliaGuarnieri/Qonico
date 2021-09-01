@@ -90,7 +90,7 @@ export default {
   }
 
   &__title {
-    color: $blue;
+    color: $title-color;
   }
 }
 

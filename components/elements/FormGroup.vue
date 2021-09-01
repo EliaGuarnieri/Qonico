@@ -63,7 +63,7 @@ export default {
   }
 
   &__label {
-    color: $blue;
+    color: $green;
     margin-bottom: 0.5rem;
 
     &--is-checkbox {
@@ -74,7 +74,7 @@ export default {
   &__field {
     display: flex;
     flex-flow: column;
-    background-color: $beige;
+    background-color: $lime;
     padding: 1rem;
     border-radius: 3px;
   }

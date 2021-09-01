@@ -11,41 +11,25 @@
         Questo sito utilizza cookie, ma solo in forma anonima e per aiutarci a capire qualcosa in più sulle persone che vengono a farci visita. Se vuoi saperne di più, puoi leggere nel dettaglio la nostra <NuxtLink to="/">informativa sulla privacy</NuxtLink>.
       </div>
       <div class="cookie-consent__footer">
-        <button
-          class="button cookie-consent__button--secondary"
-          @click="rejectCookies"
+        <TheButton
+          level="tertiary"
+          @click="$emit('reject')"
         >
-          Ho cambiato idea
-        </button>
-        <button
-          class="button cookie-consent__button"
-          @click="acceptCookies"
-        >
+          Nah
+        </TheButton>
+        <TheButton @click="$emit('accept')">
           D'accordo
-        </button>
+        </TheButton>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import TheButton from 'elements/TheButton'
+
 export default {
-  methods: {
-    acceptCookies () {
-      this.$cookies.setAll([
-        { name: 'consent', value: true, opts: { maxAges: 31556952 } },
-        { name: 'analytics', value: true, opts: { maxAges: 31556952 } }
-      ])
-      this.$emit('updateConsent')
-    },
-    rejectCookies () {
-      this.$cookies.setAll([
-        { name: 'consent', value: true, opts: { maxAges: 31556952 } },
-        { name: 'analytics', value: false, opts: { maxAges: 31556952 } }
-      ])
-      this.$emit('updateConsent')
-    }
-  }
+  components: { TheButton }
 }
 </script>
 
@@ -57,16 +41,18 @@ export default {
   font-size: 1.4rem;
   left: auto;
   overflow: hidden;
-  color: black;
-  background: $beige;
+  color: $text-color;
   padding-top: 1em;
   padding-bottom: 2em;
-  z-index: 9999;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   flex-direction: column;
+  border-radius: $radius;
+  z-index: 9999;
+
+  @include blur;
 
   &--bottom {
     @extend .cookie-consent;
@@ -113,26 +99,6 @@ export default {
   &__footer {
     display: flex;
     justify-content: flex-end;
-  }
-
-  &__button {
-    font-size: 1.4rem;
-    background-color: $blue;
-    color: $white;
-
-    &:hover {
-      background-color: $blue-dark;
-    }
-
-    &--secondary {
-      font-size: 1.4rem;
-      color: $blue;
-      margin-right: 1.8rem;
-
-      &:hover {
-        color: $blue-dark;
-      }
-    }
   }
 }
 </style>

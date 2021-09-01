@@ -221,21 +221,21 @@ export default {
   position: relative;
   display: flex;
   align-items: center;
-  background-color: $blue;
+  background-color: $green;
   color: $white;
   border-radius: 3px;
   max-width: 118px;
   transition: max-width 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   &:hover {
-    background-color: $blue-dark;
+    background-color: $green-dark;
   }
 
   &[disabled="disabled"] {
     max-width: 83px;
 
     &:hover {
-      background-color: $blue;
+      background-color: $green;
       cursor: wait;
     }
   }
@@ -266,7 +266,7 @@ export default {
     animation: 1.4s ease-in-out infinite both circle-animation;
     display: block;
     fill: transparent;
-    stroke: $black;
+    stroke: $green-dark;
     stroke-linecap: round;
     stroke-dasharray: 283;
     stroke-dashoffset: 280;

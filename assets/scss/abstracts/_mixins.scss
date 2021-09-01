@@ -1,6 +1,6 @@
-/*! Mixins */
+//! Mixins
 
-/* Media Queries */
+// Media Queries
 @mixin for-tablet {
   @media (min-width: 800px) {
     @content;
@@ -10,5 +10,21 @@
 @mixin for-desktop {
   @media (min-width: 1200px) {
     @content;
+  }
+}
+
+@mixin blur {
+  backdrop-filter: $blur;
+  background-color: rgba($white, .15);
+  border: 1px solid rgba($white, .3);
+
+  @supports not (backdrop-filter: $blur) {
+    background-color: rgba($white, .9);
+  }
+}
+
+@mixin icon-color ($color) {
+  ::v-deep svg path {
+    fill: $color;
   }
 }

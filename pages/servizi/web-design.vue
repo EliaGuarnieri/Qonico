@@ -1,0 +1,30 @@
+<template>
+  <main>
+    <TheHero />
+    <TheHero />
+    <TheHero />
+    <TheHero />
+    <!-- <SectionServizi id="servizi" />
+    <SectionChiSiamo id="chi-siamo" />
+    <SectionContatti id="contatti" /> -->
+  </main>
+</template>
+
+<script>
+import TheHero from 'components/TheHero' /*
+import SectionServizi from 'components/sections/SectionServizi'
+import SectionChiSiamo from 'components/sections/SectionChiSiamo'
+import SectionContatti from 'components/sections/SectionContatti' */
+
+export default {
+  components: { TheHero/*, SectionServizi, SectionChiSiamo, SectionContatti */ },
+  head () {
+    return {
+      script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }]
+    }
+  }
+}
+</script>
+
+<style>
+</style>

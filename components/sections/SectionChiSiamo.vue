@@ -21,10 +21,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.section {
-  background-color: $blue;
-  color: $white;
-}
 .chi-siamo {
   flex-direction: column;
 
@@ -44,7 +40,7 @@ export default {
     bottom: 2.8rem;
     width: 10rem;
     height: calc(3 / 2 * 5rem);
-    background-color: $beige;
+    background-color: $lime;
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     transform: rotateZ(35deg);
   }

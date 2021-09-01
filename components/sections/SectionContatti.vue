@@ -34,7 +34,7 @@ export default {
     align-items: center;
 
     & > * {
-      width: calc(50% - calc(#{$gutter} / 2));
+      width: calc(50% - #{$gutter});
     }
   }
 
@@ -45,7 +45,7 @@ export default {
     bottom: 2.8rem;
     width: 10rem;
     height: calc(3 / 2 * 5rem);
-    background-color: $blue;
+    background-color: $green;
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     transform: rotateZ(35deg);
   }
