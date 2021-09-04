@@ -13,7 +13,7 @@
     </defs>
     <path
       ref="path"
-      d=""
+      :d="d"
       :fill="`url('#gradient${id}')`"
     />
   </svg>
@@ -36,7 +36,9 @@ export default {
   },
   data: () => ({
     points: [],
-    noiseStep: 0.001
+    noiseStep: 0.001,
+    d: '',
+    idAnimation: null
   }),
   computed: {
     simplex () {
@@ -45,7 +47,10 @@ export default {
   },
   mounted () {
     this.createPoints()
-    this.animate()
+    this.startAnimation()
+  },
+  beforeDestroy () {
+    this.stopAnimation()
   },
   methods: {
     createPoints () {
@@ -87,9 +92,15 @@ export default {
     map (n, start1, end1, start2, end2) {
       return ((n - start1) / (end1 - start1)) * (end2 - start2) + start2
     },
+    startAnimation () {
+      this.idAnimation = requestAnimationFrame(this.animate)
+    },
+    stopAnimation () {
+      cancelAnimationFrame(this.idAnimation)
+    },
     animate () {
-      this.$refs.path.setAttribute('d', spline(this.points, 1, true))
-      requestAnimationFrame(this.animate)
+      this.d = spline(this.points, 1, true)
+      this.idAnimation = requestAnimationFrame(this.animate)
 
       for (let i = 0; i < this.points.length; i++) {
         const point = this.points[i]
