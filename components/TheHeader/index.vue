@@ -1,9 +1,11 @@
 <template>
   <header>
+    <!-- <transition name="fade"> -->
     <component
       :is="navbar"
       :items="items"
     />
+    <!-- </transition> -->
   </header>
 </template>
 
@@ -14,7 +16,7 @@ import NavbarDesktop from './NavbarDesktop'
 export default {
   components: { NavbarMobile, NavbarDesktop },
   data: () => ({
-    isMobile: null,
+    isMobile: true,
     items: [
       { name: 'home', anchor: '/' },
       {
@@ -65,6 +67,7 @@ export default {
   }),
   computed: {
     navbar () {
+      if (this.isMobile === null) { return }
       return this.isMobile ? 'NavbarMobile' : 'NavbarDesktop'
     }
   },

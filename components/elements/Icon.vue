@@ -24,16 +24,25 @@ export default {
 
 <style lang="scss" scoped>
 ::v-deep svg {
-  position: relative;
+  position: absolute;
+  inset: 0;
   top: 0.125em;
   width: 1em;
   height: 1em;
+  transform: scale(1.2);
+  transform-origin: 50% 50%;
 }
 ::v-deep svg path {
   fill: currentColor;
 }
 .icon {
   display: inline-flex;
+  position: relative;
+  justify-content: center;
   align-self: center;
+  width: 1em;
+  height: 1em;
 }
 </style>
+
+1: 0.124 = 1.2 : x

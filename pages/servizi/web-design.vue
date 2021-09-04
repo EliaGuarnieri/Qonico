@@ -11,13 +11,10 @@
 </template>
 
 <script>
-import TheHero from 'components/TheHero' /*
-import SectionServizi from 'components/sections/SectionServizi'
-import SectionChiSiamo from 'components/sections/SectionChiSiamo'
-import SectionContatti from 'components/sections/SectionContatti' */
+import TheHero from 'components/TheHero'
 
 export default {
-  components: { TheHero/*, SectionServizi, SectionChiSiamo, SectionContatti */ },
+  components: { TheHero },
   head () {
     return {
       script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }]

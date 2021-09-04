@@ -25,7 +25,27 @@
         title="Il nostro metodo."
         description="Chi siamo, cosa facciamo e come lo facciamo."
       />
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo placeat, dicta numquam sint optio modi vero facere, odit laudantium ea expedita beatae possimus eveniet, cumque debitis deleniti iste sequi magnam?</p>
+      <div class="row">
+        <div class="col">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo placeat, dicta numquam sint optio modi vero facere, odit laudantium ea expedita beatae possimus eveniet, cumque debitis deleniti iste sequi magnam?</p>
+        </div>
+        <div class="col">
+          <Glass>
+            <TextWithIcon pre="messages-3">
+              Ascoltiamo le tue esigenze
+            </TextWithIcon>
+            <TextWithIcon pre="setting-4">
+              Sviluppiamo soluzioni personalizzate
+            </TextWithIcon>
+            <TextWithIcon pre="clipboard-tick">
+              Testiamo i prodotti
+            </TextWithIcon>
+            <TextWithIcon pre="presention-chart">
+              Valutiamo i risultati
+            </TextWithIcon>
+          </Glass>
+        </div>
+      </div>
     </TheSection>
 
     <TheSection>
@@ -59,10 +79,12 @@ import TheHero from 'components/TheHero'
 import TheButton from 'elements/TheButton'
 import TheSection from 'components/TheSection'
 import SectionHeader from 'elements/SectionHeader'
-import Services from '~/components/Services'
+import Services from 'components/Services'
+import Glass from 'elements/Glass'
+import TextWithIcon from 'components/TextWithIcon'
 
 export default {
-  components: { TheHero, TheButton, TheSection, SectionHeader, Services },
+  components: { TheHero, TheButton, TheSection, SectionHeader, Services, Glass, TextWithIcon },
   data: () => ({
     services: [
       {

@@ -3,6 +3,10 @@
   padding: $gutter-large 0;
 }
 
+.section:not([class*="bg-"])+.section:not([class*="bg-"]) {
+  padding-top: 0;
+}
+
 .container {
   position: relative;
   width: 90%;
@@ -12,19 +16,23 @@
   &--full-width {
     @extend .container;
 
-    width: 98%;
-    max-width: 98%;
+    width: 96%;
+    max-width: 96%;
     border-radius: $radius;
   }
 }
 
 .container--full-width>.container {
-  width: 92%
+  width: 94%
 }
 
 .row {
-  display: flex;
-  justify-content: space-between;
+  display: block;
+
+  @include for-tablet {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .col {
@@ -33,7 +41,12 @@
 }
 
 .col+.col {
-  margin-left: $gutter;
+  margin-top: $gutter;
+
+  @include for-tablet {
+    margin-top: 0;
+    margin-left: $gutter;
+  }
 }
 
 .bg-lime {

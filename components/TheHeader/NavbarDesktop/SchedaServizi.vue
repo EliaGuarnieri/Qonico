@@ -94,7 +94,7 @@ export default {
     }
   }
   &__body {
-    font-weight: 400;
+    font-weight: 300;
   }
 }
 

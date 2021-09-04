@@ -34,7 +34,7 @@
           <TransitionExpand>
             <ul
               v-show="showSubmenu"
-              class="nav__list nav__list--is-sublist"
+              class="nav__list"
             >
               <li
                 v-for="(subitem, sindex) in item.subitems"
@@ -43,7 +43,7 @@
               >
                 <nuxt-link
                   :to="subitem.anchor"
-                  class="nav__link"
+                  class="nav__link nav__link--is-sublist"
                 >
                   <Icon :name="subitem.pre" />
                   <span>
@@ -111,10 +111,6 @@ export default {
     letter-spacing: 0.5px;
     text-transform: uppercase;
     position: relative;
-
-    &--is-sublist {
-      font-weight: 400;
-    }
   }
 
   &__link {
@@ -124,6 +120,10 @@ export default {
     transition: color 0.25s ease-in-out;
     color: $green-dark;
     cursor: pointer;
+
+    &--is-sublist {
+      font-weight: 300;
+    }
 
     span {
       position: relative;

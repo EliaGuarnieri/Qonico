@@ -9,6 +9,7 @@
 <style lang="scss" scoped>
 .hero {
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   height: calc(100vh - 65px);
