@@ -1,5 +1,16 @@
 //! Fade animation
 
+// fade
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .25s;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+
 // Fade for form error
 .fade-error-enter-active {
   max-height: 60px;

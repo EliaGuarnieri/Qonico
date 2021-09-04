@@ -1,11 +1,15 @@
 //!page-transition
 
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 0.25s;
+.page-transition-enter-active,
+.page-transition-leave-active,
+.layout-enter-active,
+.layout-leave-active {
+  transition: opacity 3s linear;
 }
 
-.page-enter,
-.page-leave-to {
+.page-transition-enter,
+.page-transition-leave-to,
+.layout-enter,
+.layout-leave-active {
   opacity: 0;
 }
