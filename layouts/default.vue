@@ -75,7 +75,6 @@ export default {
 
 .page-content {
   position: relative;
-  transition: filter 0.25s linear;
 }
 .overlay {
   display: grid;

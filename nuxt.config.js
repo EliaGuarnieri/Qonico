@@ -78,7 +78,7 @@ export default {
   },
 
   pageTransition: {
-    name: 'page-transition',
+    name: 'page',
     mode: 'out-in'
   },
 
