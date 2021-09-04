@@ -10,6 +10,7 @@ $pink: #FFADBD !default;
 $lime: #E5F33C !default;
 $white: #FEFDFB !default;
 $blob-gradient: radial-gradient(50% 50% at 50% 50%, rgba($lime, 0.4) 0%, rgba($pink, 0.3) 100%);
+$green-gradient: radial-gradient(100% 311.94% at 42.21% 0%, rgba(89, 124, 85, 0.8) 0%, rgba(255, 173, 189, 0.5) 100%);
 
 //! Colors pairing
 // @type Color
@@ -33,4 +34,4 @@ $max-width: 1200px !default;
 //! Gutter's width
 //  @type Length
 $gutter: 2.4rem !default;
-$gutter-large: 10rem !default;
+$gutter-large: 9.6rem !default;
