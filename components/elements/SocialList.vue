@@ -22,6 +22,7 @@ export default {
   components: { Icon },
   data: () => ({
     social: [
+      { icon: 'whatsapp', url: 'https://wa.me/+393469585761' },
       { icon: 'facebook', url: '#' },
       { icon: 'instagram', url: '#' }
     ]
