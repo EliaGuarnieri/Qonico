@@ -31,7 +31,8 @@ module.exports = {
         }
       })
       .catch((error) => {
-        throw error.response.data
+        console.log(error.response)
+        throw error.response
       })
 
     return res.end(JSON.stringify(data))
