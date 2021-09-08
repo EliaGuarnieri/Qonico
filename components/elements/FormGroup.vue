@@ -76,7 +76,7 @@ export default {
     flex-flow: column;
     background-color: $lime;
     padding: 1rem;
-    border-radius: 3px;
+    border-radius: $radius;
   }
 
   .error {

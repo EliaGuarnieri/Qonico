@@ -124,7 +124,7 @@ export default {
   width: 1em;
   height: 1em;
   background: transparent;
-  border: 2px solid $white;
+  border: 2px solid $lime;
   border-radius: 3px;
   cursor: pointer;
   transition: all 250ms cubic-bezier(0.4, 0, 0.23, 1);
@@ -135,7 +135,7 @@ export default {
 }
 
 .wrapper input:checked ~ .checkmark {
-  border: 0.5em solid $white;
+  border: 0.5em solid $lime;
   animation: shrink-bounce 200ms cubic-bezier(0.4, 0, 0.23, 1);
 }
 
@@ -167,7 +167,7 @@ export default {
   0% {
     width: 0;
     height: 0;
-    border-color: $white;
+    border-color: $lime;
     transform: translate3d(0, 0, 0) rotate(45deg);
   }
   33% {
@@ -178,7 +178,7 @@ export default {
   100% {
     width: 0.2em;
     height: 0.5em;
-    border-color: $white;
+    border-color: $green;
     transform: translate3d(0, -0.5em, 0) rotate(45deg);
   }
 }

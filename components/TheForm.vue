@@ -46,51 +46,12 @@
             </svg>
           </span>
         </transition>
-        <button
-          class="button"
+        <TheButton
           type="submit"
           :disabled="submit.loading"
-          :class="{
-            success: submit.success,
-            error: submit.error
-          }"
         >
-          <span class="text">Invia</span>
-          <transition name="slide-fade-right">
-            <span
-              v-if="!submit.loading"
-              class="arrow"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 350 100"
-              >
-                <defs>
-                  <marker
-                    id="arrowhead"
-                    markerWidth="10"
-                    markerHeight="7"
-                    refX="0"
-                    refY="3.5"
-                    orient="auto"
-                    fill="#fff"
-                  >
-                    <polygon points="0 0, 10 3.5, 0 7" />
-                  </marker>
-                </defs>
-                <line
-                  x1="0"
-                  y1="50"
-                  x2="250"
-                  y2="50"
-                  stroke="#fff"
-                  stroke-width="10"
-                  marker-end="url(#arrowhead)"
-                />
-              </svg>
-            </span>
-          </transition>
-        </button>
+          Invia
+        </TheButton>
       </div>
       <transition name="fade-error">
         <Alert
@@ -106,6 +67,7 @@
 <script>
 import { required, email, sameAs } from 'vuelidate/lib/validators'
 import { templates } from 'vuelidate-error-extractor'
+import TheButton from 'elements/TheButton'
 import InputName from '~/components/elements/InputName.vue'
 import InputEmail from '~/components/elements/InputEmail.vue'
 import InputMessaggio from '~/components/elements/InputMessaggio.vue'
@@ -119,7 +81,8 @@ export default {
     InputEmail,
     InputMessaggio,
     CheckBox,
-    Alert
+    Alert,
+    TheButton
   },
   props: {
     name: {
@@ -217,88 +180,7 @@ export default {
     align-items: center;
   }
 }
-.button {
-  position: relative;
-  display: flex;
-  align-items: center;
-  background-color: $green;
-  color: $white;
-  border-radius: 3px;
-  max-width: 118px;
-  transition: max-width 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-  &:hover {
-    background-color: $green-dark;
-  }
-
-  &[disabled="disabled"] {
-    max-width: 83px;
-
-    &:hover {
-      background-color: $green;
-      cursor: wait;
-    }
-  }
-
-  .arrow {
-    position: relative;
-    margin-left: 1rem;
-    width: 25px;
-    height: 17px;
-    line-height: 0.7;
-  }
-}
-
-.loader {
-  position: relative;
-  margin-right: 1.8rem;
-  width: 20px;
-  height: 20px;
-
-  svg {
-    inset: 0;
-    position: absolute;
-    animation: 2s linear infinite svg-animation;
-    max-width: 100px;
-  }
-
-  circle {
-    animation: 1.4s ease-in-out infinite both circle-animation;
-    display: block;
-    fill: transparent;
-    stroke: $green-dark;
-    stroke-linecap: round;
-    stroke-dasharray: 283;
-    stroke-dashoffset: 280;
-    stroke-width: 10px;
-    transform-origin: 50% 50%;
-  }
-}
-
-@keyframes circle-animation {
-  0%,
-  25% {
-    stroke-dashoffset: 280;
-    transform: rotate(0);
-  }
-
-  50%,
-  75% {
-    stroke-dashoffset: 75;
-    transform: rotate(45deg);
-  }
-
-  100% {
-    stroke-dashoffset: 280;
-    transform: rotate(360deg);
-  }
-}
-@keyframes svg-animation {
-  0% {
-    transform: rotateZ(0deg);
-  }
-  100% {
-    transform: rotateZ(360deg);
-  }
+.button[disabled="disabled"]:hover {
+  cursor: wait;
 }
 </style>

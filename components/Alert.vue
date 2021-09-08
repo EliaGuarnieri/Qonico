@@ -31,7 +31,7 @@ export default {
   white-space: break-spaces;
   color: #fff;
   padding: 1.2rem 1.8rem;
-  border-radius: 3px;
+  border-radius: $radius;
 }
 .error {
   background-color: red;
