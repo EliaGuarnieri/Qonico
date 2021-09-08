@@ -24,7 +24,6 @@ app.use(path, async (req, res) => {
           // correggere qui inviare come parametri tutte le cose
           if (queries.getAll('mediatypes[]').includes(response.data.data[n].media_type)) {
             feed.push(response.data.data[n])
-            console.log(feed)
             if (feed.length >= queries.get('count')) {
               return feed
             }
@@ -33,13 +32,14 @@ app.use(path, async (req, res) => {
       }
     })
     .catch((error) => {
+      console.log('non capisco')
       throw error.response.statusText
     })
 
   return res.end(JSON.stringify(data))
 })
 
-module.exports.handler = app
+exports.handler = app
 
 /*
 module.exports = {
