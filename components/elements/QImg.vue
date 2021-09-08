@@ -69,7 +69,7 @@ export default {
         const placeholder = $el.querySelector('.app-img__placeholder')
 
         img.onload = function () {
-          _.setHeight()
+          _.setHeight() // set the image height based on width
           delete img.onload
           $el.classList.add('app-img--loaded')
           if (placeholder) {
@@ -105,8 +105,6 @@ export default {
       const currentWidth = $refs.image.offsetWidth
 
       $refs.image.style.height = `${currentWidth * height / width}px`
-      // eslint-disable-next-line no-console
-      console.log(width, currentWidth, $refs.image.style.height)
 
       this.$once('hook:beforeDestroy', () => {
         window.removeEventListener('resize', this.setHeight)

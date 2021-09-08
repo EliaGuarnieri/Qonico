@@ -53,7 +53,7 @@
         title="Progetti."
         description="Chi siamo, cosa facciamo e come lo facciamo."
       />
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo placeat, dicta numquam sint optio modi vero facere, odit laudantium ea expedita beatae possimus eveniet, cumque debitis deleniti iste sequi magnam?</p>
+      <ProjectView :images="images" />
     </TheSection>
 
     <TheSection>
@@ -61,7 +61,7 @@
         title="Contattaci."
         description="Chi siamo, cosa facciamo e come lo facciamo."
       />
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo placeat, dicta numquam sint optio modi vero facere, odit laudantium ea expedita beatae possimus eveniet, cumque debitis deleniti iste sequi magnam?</p>
+      <SectionContatti />
     </TheSection>
 
     <TheSection>
@@ -69,7 +69,42 @@
         title="Follow Us."
         description="Seguici su Istagram e Facebook."
       />
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo placeat, dicta numquam sint optio modi vero facere, odit laudantium ea expedita beatae possimus eveniet, cumque debitis deleniti iste sequi magnam?</p>
+      <insta-feed
+        fields="media_url,media_type,caption,permalink"
+        container-class="image-container"
+        :mediatypes="['IMAGE', 'CAROUSEL_ALBUM']"
+      >
+        <template #loading="props">
+          <h1
+            v-if="props.loading"
+            class="fancy-loading"
+          >
+            Loading, please wait...
+          </h1>
+        </template>
+
+        <template #feeds="props">
+          <a
+            :href="props.feed.permalink"
+            rel="noopener"
+            target="_blank"
+          >
+            <div class="instagram-image">
+              <img
+                :src="props.feed.media_url"
+                alt="Instagram post"
+              >
+              <div :text="props.feed.caption" />
+            </div>
+          </a>
+        </template>
+
+        <template #error="props">
+          <div class="fancy-alert">
+            {{ props.error }}
+          </div>
+        </template>
+      </insta-feed>
     </TheSection>
   </main>
 </template>
@@ -82,9 +117,23 @@ import SectionHeader from 'elements/SectionHeader'
 import Services from 'components/Services'
 import Glass from 'elements/Glass'
 import TextWithIcon from 'components/TextWithIcon'
+import ProjectView from 'components/ProjectView.vue'
+import SectionContatti from 'components/SectionContatti.vue'
+import InstaFeed from 'components/InstaFeed.vue'
 
 export default {
-  components: { TheHero, TheButton, TheSection, SectionHeader, Services, Glass, TextWithIcon },
+  components: {
+    TheHero,
+    TheButton,
+    TheSection,
+    SectionHeader,
+    Services,
+    Glass,
+    TextWithIcon,
+    ProjectView,
+    SectionContatti,
+    InstaFeed
+  },
   data: () => ({
     services: [
       {
@@ -129,6 +178,11 @@ export default {
         description: 'Fatti trovare dal tuo pubblico',
         cta: 'scopri di più'
       }
+    ],
+    images: [
+      { src: 'img/1280px-Never_Have_I_Ever_Title_Card.jpg', alt: 'testo alternativo', width: 366, height: 312 },
+      { src: 'img/mae-mu-z8PEoNIlGlg-unsplash.jpg', alt: 'testo alternativo', width: 366, height: 312 },
+      { src: 'img/monica-silva-1yQEs9ZumxU-unsplash.jpg', alt: 'testo alternativo', width: 366, height: 312 }
     ]
   }),
   head () {
