@@ -13,13 +13,13 @@ app.use('/functions', async (req, res) => {
     params: { access_token: process.env.INSTAGRAM_ACCESS_TOKEN, fields: queries.get('fields') }
   })
     .then((response) => {
+      const feed = []
       if (response.status === 400) {
         res.statusCode = response.status
         return response.status
       }
       if (response.status === 200) {
         res.statusCode = response.status
-        const feed = []
         for (const n in response.data.data) {
           // correggere qui inviare come parametri tutte le cose
           if (queries.getAll('mediatypes[]').includes(response.data.data[n].media_type)) {
