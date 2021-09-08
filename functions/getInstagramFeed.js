@@ -4,7 +4,7 @@ const axios = require('axios')
 module.exports = {
   path: '/functions',
   handler: async (req, res) => {
-    const baseURL = process.env.NODE_ENV === 'production' ? 'https://veriweb.netlify.app' : 'http://192.168.1.6:3000'
+    const baseURL = process.env.NODE_ENV === 'production' ? process.env.URL : 'http://192.168.1.6:3000'
     const currentUrl = new URL(req.url, baseURL)
     const queries = currentUrl.searchParams
 
