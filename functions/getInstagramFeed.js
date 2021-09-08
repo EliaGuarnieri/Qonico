@@ -17,15 +17,14 @@ app.use(path, async (req, res) => {
     .then((response) => {
       const feed = []
       if (response.status === 400) {
-        res.statusCode = response.status
         return response.status
       }
       if (response.status === 200) {
-        res.statusCode = response.status
         for (const n in response.data.data) {
           // correggere qui inviare come parametri tutte le cose
           if (queries.getAll('mediatypes[]').includes(response.data.data[n].media_type)) {
             feed.push(response.data.data[n])
+            console.log(feed)
             if (feed.length >= queries.get('count')) {
               return feed
             }
