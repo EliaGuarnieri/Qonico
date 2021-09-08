@@ -10,7 +10,7 @@ export default {
   },
 
   serverMiddleware: [
-    { path: '/api', handler: '~/api/getInstagramFeed' }
+    { path: '/functions', handler: '~/functions/getInstagramFeed' }
   ],
 
   // Global page headers: https://go.nuxtjs.dev/config-head
