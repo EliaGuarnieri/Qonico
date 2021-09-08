@@ -9,9 +9,7 @@ export default {
     host: process.env.NODE_ENV === 'production' || '0.0.0.0'
   },
 
-  serverMiddleware: [
-    { path: '/functions', handler: '~/functions/getInstagramFeed' }
-  ],
+  serverMiddleware: ['~/functions/getInstagramFeed'],
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
