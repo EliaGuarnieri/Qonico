@@ -4,6 +4,8 @@ const axios = require('axios')
 const connect = require('connect')
 const app = connect()
 
+const feed = []
+
 app.use('/functions', async (req, res) => {
   const baseURL = process.env.NODE_ENV === 'production' ? process.env.URL : 'http://192.168.1.6:3000'
   const currentUrl = new URL(req.url, baseURL)
@@ -13,7 +15,6 @@ app.use('/functions', async (req, res) => {
     params: { access_token: process.env.INSTAGRAM_ACCESS_TOKEN, fields: queries.get('fields') }
   })
     .then((response) => {
-      const feed = []
       if (response.status === 400) {
         res.statusCode = response.status
         return response.status
