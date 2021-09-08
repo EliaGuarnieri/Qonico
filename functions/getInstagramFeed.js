@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-export default {
+module.exports = {
   path: '/functions',
   handler: async (req, res) => {
     const baseURL = process.env.NODE_ENV === 'production' ? 'https://veriweb.netlify.app' : 'http://192.168.1.6:3000'
