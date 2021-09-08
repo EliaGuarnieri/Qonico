@@ -4,7 +4,7 @@ const axios = require('axios')
 const connect = require('connect')
 const app = connect()
 
-app.use('/functions', async (req, res) => {
+app.use('/.netlify/functions', async (req, res) => {
   const baseURL = process.env.NODE_ENV === 'production' ? process.env.URL : 'http://192.168.1.6:3000'
   const currentUrl = new URL(req.url, baseURL)
   const queries = currentUrl.searchParams
