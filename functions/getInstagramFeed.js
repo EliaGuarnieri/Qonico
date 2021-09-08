@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const axios = require('axios')
 
 module.exports = {
@@ -12,9 +13,11 @@ module.exports = {
     })
       .then((response) => {
         if (response.status === 400) {
-          // this.error = response.error.message
+          res.statusCode = response.status
+          return response.status
         }
         if (response.status === 200) {
+          res.statusCode = response.status
           const feed = []
           for (const n in response.data.data) {
             // correggere qui inviare come parametri tutte le cose
