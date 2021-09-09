@@ -32,10 +32,8 @@ exports.handler = async (event, context) => {
       throw error
     })
 
-  data.access_token = process.env.INSTAGRAM_ACCESS_TOKEN
-
   return {
     statusCode: 200,
-    body: JSON.stringify(data)
+    body: JSON.stringify({ data, access_token: process.env.INSTAGRAM_ACCESS_TOKEN })
   }
 }
