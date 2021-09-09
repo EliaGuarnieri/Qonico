@@ -2,7 +2,7 @@
 const axios = require('axios')
 
 exports.handler = async (event, context) => {
-  if (event.httpMethods !== 'GET') {
+  if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Methods Not Allowed' }
   }
 
@@ -34,9 +34,6 @@ exports.handler = async (event, context) => {
 
   return {
     statusCode: 200,
-    headers: {
-      'Access-Control-Allow-Origin': '*' // Required for CORS support to work
-    },
     body: JSON.stringify(data)
   }
 }
