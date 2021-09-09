@@ -1,4 +1,47 @@
 /* eslint-disable no-console */
+const axios = require('axios')
+
+exports.handler = async (event, context) => {
+  if (event.httpMethods !== 'GET') {
+    return { statusCode: 405, body: 'Methods Not Allowed' }
+  }
+
+  const queries = event.queryStringParameters
+
+  const data = await axios.get('https://graph.instagram.com/me/media', {
+    params: { access_token: process.env.INSTAGRAM_ACCESS_TOKEN, fields: queries.fields }
+  })
+    .then((response) => {
+      const feed = []
+      if (response.status === 400) {
+        return response.status
+      }
+      if (response.status === 200) {
+        for (const n in response.data.data) {
+          // correggere qui inviare come parametri tutte le cose
+          if (queries['mediatypes[]'].includes(response.data.data[n].media_type)) {
+            feed.push(response.data.data[n])
+            if (feed.length >= queries.count) {
+              return feed
+            }
+          }
+        }
+      }
+    })
+    .catch((error) => {
+      throw error
+    })
+
+  return {
+    statusCode: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*' // Required for CORS support to work
+    },
+    body: JSON.stringify(data)
+  }
+}
+
+/*
 const { URL } = require('url')
 const axios = require('axios')
 const connect = require('connect')
@@ -15,13 +58,11 @@ app.use(path, async (req, res) => {
     params: { access_token: process.env.INSTAGRAM_ACCESS_TOKEN, fields: queries.get('fields') }
   })
     .then((response) => {
-      // const feed = []
+      const feed = []
       if (response.status === 400) {
         return response.status
       }
       if (response.status === 200) {
-        return response.data.data
-        /*
         for (const n in response.data.data) {
           // correggere qui inviare come parametri tutte le cose
           if (queries.getAll('mediatypes[]').includes(response.data.data[n].media_type)) {
@@ -30,20 +71,18 @@ app.use(path, async (req, res) => {
               return feed
             }
           }
-        } */
+        }
       }
     })
     .catch((error) => {
-      console.log('non capisco')
       throw error.response.statusText
     })
 
   return res.end(JSON.stringify(data))
 })
-
+// "Cannot read property 'length' of undefined" cercare di capire
 exports.handler = app
 
-/*
 module.exports = {
   path: '/functions',
   handler: async (req, res) => {

@@ -66,9 +66,10 @@ export default {
   methods: {
     async getUserFeed () {
       this.loading = true
-      const path = process.env.NODE_ENV === 'production' ? '/.netlify/functions/' : '/functions/'
+      // const path = process.env.NODE_ENV === 'production' ? '/.netlify/functions/' : '/functions/'
+
       await this.$axios
-        .get(`${path}getInstagramFeed`, {
+        .get('/.netlify/functions/getInstagramFeed', {
           params: { fields: this.fields, mediatypes: this.mediatypes, count: this.count }
         })
         .then((response) => {

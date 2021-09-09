@@ -9,8 +9,6 @@ export default {
     host: process.env.NODE_ENV === 'production' || '0.0.0.0'
   },
 
-  serverMiddleware: ['~/functions/getInstagramFeed'],
-
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Veri Web Design',
@@ -112,7 +110,7 @@ export default {
   ],
   // Axios global option: https://axios.nuxtjs.org/options/
   axios: {
-    baseURL: process.env.NODE_ENV === 'production' ? 'https://veriweb.netlify.app' : 'http://192.168.1.6:3000'
+    baseURL: process.env.NODE_ENV === 'production' ? process.env.URL : 'http://192.168.1.6:3000'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

@@ -91,3 +91,5 @@ sw.*
 
 # Temp
 # icons
+# Local Netlify folder
+.netlify
