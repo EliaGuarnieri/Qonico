@@ -2,7 +2,7 @@
 const axios = require('axios')
 
 exports.handler = async (event, context) => {
-  if (event.httpMethod !== 'POST') {
+  if (event.httpMethod !== 'GET') {
     return { statusCode: 405, body: 'Methods Not Allowed' }
   }
 
