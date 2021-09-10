@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 const axios = require('axios')
 
 exports.handler = async (event, context) => {
@@ -34,6 +33,6 @@ exports.handler = async (event, context) => {
 
   return {
     statusCode: 200,
-    body: JSON.stringify({ data, access_token: process.env.INSTAGRAM_ACCESS_TOKEN })
+    body: JSON.stringify(data)
   }
 }

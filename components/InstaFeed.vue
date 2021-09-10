@@ -79,8 +79,6 @@ export default {
           }
           if (response.status === 200) {
             this.feeds = response.data
-            // eslint-disable-next-line no-console
-            console.log(response.data.access_token)
           }
         })
         .catch((error) => {

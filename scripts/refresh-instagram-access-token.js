@@ -33,8 +33,10 @@ refreshAccessToken().then((response) => {
           }
         }
       })
+      console.log(sites)
       return sites
     } catch (error) {
+      console.log(error)
       return error
     }
   }
