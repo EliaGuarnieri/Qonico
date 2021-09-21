@@ -73,38 +73,7 @@
         fields="media_url,media_type,caption,permalink"
         container-class="image-container"
         :mediatypes="['IMAGE', 'CAROUSEL_ALBUM']"
-      >
-        <template #loading="props">
-          <h1
-            v-if="props.loading"
-            class="fancy-loading"
-          >
-            Loading, please wait...
-          </h1>
-        </template>
-
-        <template #feeds="props">
-          <a
-            :href="props.feed.permalink"
-            rel="noopener"
-            target="_blank"
-          >
-            <div class="instagram-image">
-              <img
-                :src="props.feed.media_url"
-                alt="Instagram post"
-              >
-              <div :text="props.feed.caption" />
-            </div>
-          </a>
-        </template>
-
-        <template #error="props">
-          <div class="fancy-alert">
-            {{ props.error }}
-          </div>
-        </template>
-      </insta-feed>
+      />
     </TheSection>
   </main>
 </template>

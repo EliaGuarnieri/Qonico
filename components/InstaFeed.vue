@@ -1,19 +1,29 @@
 <template>
   <div :class="containerClass">
-    <slot
-      name="loading"
-      :loading="loading"
-    />
-    <slot
+    <h1
+      v-if="loading"
+      class="fancy-loading"
+    >
+      Loading, please wait...
+    </h1>
+    <a
       v-for="(feed, index) in feeds"
-      :index="index"
-      :feed="feed"
-      name="feeds"
-    />
-    <slot
-      name="error"
-      :error="error"
-    />
+      :key="index"
+      :href="feed.permalink"
+      rel="noopener"
+      target="_blank"
+    >
+      <div class="instagram-image">
+        <img
+          :src="feed.media_url"
+          alt="Instagram post"
+        >
+        <div :text="feed.caption" />
+      </div>
+    </a>
+    <div class="fancy-alert">
+      {{ error }}
+    </div>
   </div>
 </template>
 
