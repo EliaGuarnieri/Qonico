@@ -66,10 +66,10 @@ export default {
   methods: {
     async getUserFeed () {
       this.loading = true
-      // const path = process.env.NODE_ENV === 'production' ? '/.netlify/functions/' : '/functions/'
+      const path = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8888'
 
       await this.$axios
-        .get('/.netlify/functions/getInstagramFeed', {
+        .get(`${path}/.netlify/functions/getInstagramFeed`, {
           params: { fields: this.fields, mediatypes: this.mediatypes, count: this.count }
         })
         .then((response) => {
@@ -82,6 +82,8 @@ export default {
           }
         })
         .catch((error) => {
+          this.loading = false
+          this.error = 'Oops! Qualcosa non ha funzionato 😔'
           throw error
         })
     }

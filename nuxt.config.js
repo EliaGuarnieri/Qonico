@@ -108,9 +108,10 @@ export default {
     ['cookie-universal-nuxt', { alias: 'cookies' }],
     '@nuxtjs/axios'
   ],
+
   // Axios global option: https://axios.nuxtjs.org/options/
   axios: {
-    baseURL: process.env.NODE_ENV === 'production' ? process.env.URL : 'http://192.168.1.6:3000'
+    // Global options
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
