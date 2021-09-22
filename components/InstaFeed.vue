@@ -1,8 +1,8 @@
 <template>
-  <div :class="containerClass">
+  <div class="feeds__container">
     <h1
       v-if="loading"
-      class="fancy-loading"
+      class="feeds__loading"
     >
       Loading, please wait...
     </h1>
@@ -13,33 +13,29 @@
       rel="noopener"
       target="_blank"
     >
-      <div class="instagram-image">
-        <img
+      <div class="feeds__image">
+        <QImg
           :src="feed.media_url"
           alt="Instagram post"
-        >
+          :width="384"
+          :height="384"
+          :aspect-ratio="aspectRatio"
+        />
         <div :text="feed.caption" />
       </div>
     </a>
-    <div class="fancy-alert">
+    <div class="feeds__alert">
       {{ error }}
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  props: {
-    /*
-     * Instagram access token.
+import QImg from 'elements/QImg'
 
-    token: {
-      type: String,
-      required: true
-    }, */
-    /*
-     * Media Fields (see https://developers.facebook.com/docs/instagram-basic-display-api/reference/media#fields)
-     */
+export default {
+  components: { QImg },
+  props: {
     fields: {
       type: String,
       required: true
@@ -57,12 +53,6 @@ export default {
     mediatypes: {
       type: Array,
       required: true
-    },
-    // Class for container div
-    containerClass: {
-      type: String,
-      default: '',
-      required: false
     }
   },
   data: () => ({
@@ -100,3 +90,18 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.feeds {
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: $gutter;
+  }
+
+  &__image {
+    line-height: 0;
+  }
+}
+</style>

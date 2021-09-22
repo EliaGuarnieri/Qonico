@@ -71,7 +71,6 @@
       />
       <insta-feed
         fields="media_url,media_type,caption,permalink"
-        container-class="image-container"
         :mediatypes="['IMAGE', 'CAROUSEL_ALBUM']"
       />
     </TheSection>
