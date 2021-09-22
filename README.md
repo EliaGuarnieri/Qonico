@@ -1,20 +1,14 @@
-# cms
+# Command
 
-## Build Setup
+Development in nuxt environment
+```npm run dev```
 
-```bash
-# install dependencies
-$ npm install
+Development in netlify environment
+```netlify dev```
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+# TODO
 
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+- [ ] Usare github secret e IFTT per aggiornamento token instagram. [Github Action Guide](https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action)
+- [ ] Sistemare feed instagram (troppo gutter su smartphone)
+- [ ] Cambiare colore selection
+- [ ] Valutare lazy loading di tutti i componenti
