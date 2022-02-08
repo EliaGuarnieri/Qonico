@@ -3,6 +3,9 @@
 Development in nuxt environment
 ```npm run dev```
 
+Run lambda function in local
+```npm run dev:functions```
+
 Development in netlify environment
 ```netlify dev```
 
