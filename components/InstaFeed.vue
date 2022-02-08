@@ -1,11 +1,11 @@
 <template>
   <div class="feeds__container">
-    <h1
+    <p
       v-if="loading"
       class="feeds__loading"
     >
       Loading, please wait...
-    </h1>
+    </p>
     <a
       v-for="(feed, index) in feeds"
       :key="index"
@@ -19,7 +19,6 @@
           alt="Instagram post"
           :width="384"
           :height="384"
-          :aspect-ratio="aspectRatio"
         />
         <div :text="feed.caption" />
       </div>
@@ -66,7 +65,7 @@ export default {
   methods: {
     async getUserFeed () {
       this.loading = true
-      const path = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8888'
+      const path = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:9999'
 
       await this.$axios
         .get(`${path}/.netlify/functions/getInstagramFeed`, {
@@ -96,7 +95,6 @@ export default {
   &__container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
     gap: $gutter;
   }
 
