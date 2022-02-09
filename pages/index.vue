@@ -85,9 +85,9 @@ import SectionHeader from 'elements/SectionHeader'
 import Services from 'components/Services'
 import Glass from 'elements/Glass'
 import TextWithIcon from 'components/TextWithIcon'
-import ProjectView from 'components/ProjectView.vue'
-import SectionContatti from 'components/SectionContatti.vue'
-import InstaFeed from 'components/InstaFeed.vue'
+import ProjectView from 'components/ProjectView'
+import SectionContatti from 'components/SectionContatti'
+import InstaFeed from 'components/InstaFeed'
 
 export default {
   components: {
