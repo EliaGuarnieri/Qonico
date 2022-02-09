@@ -1,4 +1,41 @@
 <template>
+  <!-- <Swiper class="wrapper">
+    <SwiperSlide
+      v-for="(item, index) in items"
+      :key="index"
+    >
+      <div class="card">
+        <div class="card__header">
+          <Icon
+            :name="item.pre"
+            class="card__icon"
+          />
+        </div>
+        <div class="card__content">
+          <h3 class="card__title title">
+            {{ item.name }}
+          </h3>
+          <p class="card__body">
+            {{ item.description }}
+          </p>
+        </div>
+        <div class="card__footer">
+          <TheButton
+            :to="item.anchor"
+            level="secondary"
+            class="card__link"
+          >
+            {{ item.cta }}
+          </TheButton>
+        </div>
+        <Blob
+          :id="index"
+          :stops="gradientStops"
+          class="card__background"
+        />
+      </div>
+    </SwiperSlide>
+  </Swiper> -->
   <ul class="wrapper">
     <li
       v-for="(item, index) in items"
@@ -42,8 +79,10 @@ import Icon from 'elements/Icon'
 import TheButton from 'elements/TheButton'
 import Blob from 'elements/Blob'
 
+// import { Swiper, SwiperSlide } from 'components/Swiper.vue'
+
 export default {
-  components: { Icon, TheButton, Blob },
+  components: { Icon, TheButton, Blob /* , Swiper, SwiperSlide */ },
   props: {
     items: {
       type: Array,
