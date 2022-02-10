@@ -12,6 +12,7 @@ jobs:
       uses: phips28/gh-action-bump-version@v9.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PACKAGEJSON_DIR: '/'
       with:
         minor-wording: 'FEATURE,ADD,NEW'
         major-wording: 'MAJOR'
