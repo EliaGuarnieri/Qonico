@@ -15,6 +15,6 @@ jobs:
       with:
         minor-wording: 'FEATURE,ADD,NEW'
         magior-wording: 'MAJOR'
-        minor-wording: 'PATCH,FIX,FIXES'
+        patch-wording: 'PATCH,FIX,FIXES'
         tag-prefix: 'v'
         commit-message: 'CI: bumps version to {{version}} [skip ci]'
