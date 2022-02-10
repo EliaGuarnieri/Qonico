@@ -1,6 +1,6 @@
 {
-  "name": "@thyweb/website",
-  "version": "1.0.0",
+  "name": "@qonico/website",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "nuxt",
