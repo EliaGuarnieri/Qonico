@@ -8,8 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-        uses: actions/checkout@v2
+    - name: 'Checkout source code'
+        uses: 'actions/checkout@v2'
+        with:
+          ref: ${{ github.ref }}
     - name: Bump version
       uses: phips28/gh-action-bump-version@v9.0.1
       env:
