@@ -8,11 +8,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Automated Version Bump
+    - name: Checkout
+        uses: actions/checkout@v2
+    - name: Bump version
       uses: phips28/gh-action-bump-version@v9.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PACKAGEJSON_DIR: '/'
       with:
         minor-wording: 'FEATURE,ADD,NEW'
         major-wording: 'MAJOR'
