@@ -4,14 +4,14 @@ on: push
 
 jobs:
   bump-version:
-    name: 'Bump Version'
+    name: 'Bump Version on master'
     runs-on: ubuntu-latest
 
     steps:
       - name: 'Checkout source code'
-          uses: 'actions/checkout@v2'
-          with:
-            ref: ${{ github.ref }}
+        uses: 'actions/checkout@v2'
+        with:
+          ref: ${{ github.ref }}
       - name: Bump version
         uses: phips28/gh-action-bump-version@v9.0.1
         env:
