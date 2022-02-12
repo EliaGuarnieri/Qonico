@@ -1,0 +1,24 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# BLACK=$(tput setaf 0)
+# RED=$(tput setaf 1)
+# GREEN=$(tput setaf 2)
+# YELLOW=$(tput setaf 3)
+# BLUE=$(tput setaf 4)
+
+# MSG_FILE=$1
+# FILE_CONTENT="$(cat $MSG_FILE)"
+# # Initialize constants here
+# export REGEX='(Add: |Created: |Fix: |Patch: |Update: |Rework: |Release: )'
+# export ERROR_MSG="Commit message format must match regex \"${REGEX}\""
+# if [[ $FILE_CONTENT =~ $REGEX ]]; then
+#   printf "${GREEN}Good commit!${BLACK}"
+# else
+#   printf "${RED}Bad commit ${BLUE}\"$FILE_CONTENT\"\n"
+#   printf "${YELLOW}$ERROR_MSG\n"
+#   printf "commit-msg hook failed (add --no-verify to bypass)\n"
+
+#   exit 1
+# fi
+# exit 0
