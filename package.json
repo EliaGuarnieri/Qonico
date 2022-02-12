@@ -1,6 +1,6 @@
 {
   "name": "@qonico/website",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -9,7 +9,8 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
-    "lint": "npm run lint:js"
+    "lint": "npm run lint:js",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@georgedoescode/spline": "^1.0.1",
@@ -38,6 +39,7 @@
     "fibers": "^5.0.1",
     "nuxt-compress": "^5.0.0",
     "sass": "^1.41.1",
-    "sass-loader": "^10.2.0"
+    "sass-loader": "^10.2.0",
+    "husky": "^7.0.0"
   }
 }

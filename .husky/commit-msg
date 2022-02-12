@@ -34,8 +34,8 @@ else
   exit 1
 fi
 
-export BUMPED=$(git diff --exit-code package.json)
-if [[ $BUMPED -eq 1 ]]; then
+export CHANGED=$(git status -s package.json)
+if [[ $CHANGED =~ "M package.json" ]]; then
   git add package.json package-lock.json
   git commit -m "[skip CI] Automated versioning bump"
 fi
