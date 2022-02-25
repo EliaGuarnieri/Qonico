@@ -15,11 +15,10 @@ jobs:
       - name: Bump version
         uses: phips28/gh-action-bump-version@v9.0.1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.BUMP_TOKEN }}
         with:
-          minor-wording: 'FEATURE,ADD,NEW'
-          major-wording: 'MAJOR'
-          patch-wording: 'PATCH,FIX,FIXES'
+          minor-wording: 'feat,add,new'
+          major-wording: 'major,BREAKING CHANGE'
           tag-prefix: 'v'
           commit-message: 'CI: bumps version to {{version}} [skip ci]'
           skip-tag:  'true'
