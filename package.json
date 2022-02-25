@@ -1,6 +1,6 @@
 {
   "name": "@qonico/website",
-  "version": "0.1.5",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -39,7 +39,6 @@
     "fibers": "^5.0.1",
     "nuxt-compress": "^5.0.0",
     "sass": "^1.41.1",
-    "sass-loader": "^10.2.0",
-    "husky": "^7.0.0"
+    "sass-loader": "^10.2.0"
   }
 }
