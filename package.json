@@ -1,6 +1,10 @@
 {
   "name": "@qonico/website",
+<<<<<<< HEAD
   "version": "0.1.8",
+=======
+  "version": "0.1.1",
+>>>>>>> 1bc9ac0cf07ac00b865a4cbba84744ea9aa46c96
   "private": true,
   "scripts": {
     "dev": "nuxt",
