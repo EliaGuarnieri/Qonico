@@ -3,8 +3,8 @@
   padding: $gutter-large 0;
 }
 
-.section:not([class*="bg-"])+.section:not([class*="bg-"]) {
-  padding-top: 0;
+.section[class*="bg-"] {
+  padding: 2em 0;
 }
 
 .container {
