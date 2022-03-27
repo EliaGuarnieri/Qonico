@@ -67,8 +67,10 @@ export default {
   }),
   computed: {
     navbar () {
-      if (this.isMobile === null) { return }
-      return this.isMobile ? 'NavbarMobile' : 'NavbarDesktop'
+      return 'NavbarDesktop'
+      // TODO: rimuovere commento quando ci saranno le pagine (Servizi)
+      /* if (this.isMobile === null) { return }
+      return this.isMobile ? 'NavbarMobile' : 'NavbarDesktop' */
     }
   },
   mounted () {

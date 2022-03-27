@@ -4,11 +4,12 @@
       <div class="container">
         <div class="logo">
           <p>Logo</p>
-        </div>
+        </div><!--
+          // TODO: Rimuovere commento quando ci saranno i contenuti (Servizi)
         <NavDesktop
           :items="items"
           @click="isModalOpen = !isModalOpen"
-        />
+        /> -->
         <TheButton>
           Contattaci
         </TheButton>
@@ -23,11 +24,11 @@
 
 <script>
 import TheButton from 'elements/TheButton'
-import NavDesktop from './NavDesktop'
+/* import NavDesktop from './NavDesktop' */
 import SchedaServizi from './SchedaServizi'
 
 export default {
-  components: { TheButton, NavDesktop, SchedaServizi },
+  components: { TheButton, /* NavDesktop, */ SchedaServizi },
   props: {
     items: {
       type: Array,

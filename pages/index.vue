@@ -48,7 +48,8 @@
       </div>
     </TheSection>
 
-    <!-- <TheSection>
+    <!-- // TODO: Rimuovere quando ci saranno i contenuti (progetti)
+    <TheSection>
       <SectionHeader
         title="Progetti."
         description="Chi siamo, cosa facciamo e come lo facciamo."
