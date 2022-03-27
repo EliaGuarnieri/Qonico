@@ -115,6 +115,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ['@georgedoescode/spline']
+    transpile: ['@georgedoescode/spline'],
+    sassOptions: {
+      fiber: false
+    }
   }
 }
