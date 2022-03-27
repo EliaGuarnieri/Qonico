@@ -100,8 +100,7 @@ export default {
       const sensibility = 250
 
       return (
-        rect.left >= 0 - sensibility /* &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth) + sensibility + 150 */
+        rect.left >= 0 - sensibility
       )
     }
   }
@@ -109,12 +108,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/**
- * - Indicare in un qualche modo lo scroll
- *  - velocizzare animazione (il problema è che prende troppo tardi la card entrante)
- * - Resettare nella versione tablet
- * - sistemare dimensione barrette sono troppo cicciotte
- */
 .services {
   position: relative;
   margin-inline: -5%;
@@ -140,6 +133,9 @@ export default {
   }
 
   @include for-tablet {
+    all: unset;
+    display: grid;
+  position: relative;
     gap: calc(#{$gutter} * 2);
     grid-template-columns: repeat(auto-fit, 368px);
     justify-content: center;
@@ -208,6 +204,10 @@ export default {
       flex-grow: 5;
       background: $blob-gradient;
     }
+  }
+
+  @include for-tablet {
+    display: none;
   }
 }
 </style>
