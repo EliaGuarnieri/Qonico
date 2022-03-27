@@ -48,13 +48,13 @@
       </div>
     </TheSection>
 
-    <TheSection>
+    <!-- <TheSection>
       <SectionHeader
         title="Progetti."
         description="Chi siamo, cosa facciamo e come lo facciamo."
       />
       <ProjectView :images="images" />
-    </TheSection>
+    </TheSection> -->
 
     <TheSection>
       <SectionHeader
@@ -85,7 +85,7 @@ import SectionHeader from 'elements/SectionHeader'
 import Services from 'components/Services'
 import Glass from 'elements/Glass'
 import TextWithIcon from 'components/TextWithIcon'
-import ProjectView from 'components/ProjectView'
+/* import ProjectView from 'components/ProjectView' */
 import SectionContatti from 'components/SectionContatti'
 import InstaFeed from 'components/InstaFeed'
 
@@ -98,7 +98,7 @@ export default {
     Services,
     Glass,
     TextWithIcon,
-    ProjectView,
+    /* ProjectView, */
     SectionContatti,
     InstaFeed
   },
