@@ -34,16 +34,16 @@
           <p class="card__body">
             {{ item.description }}
           </p>
-        </div>
+        </div><!--
         <div class="card__footer">
           <TheButton
             :to="item.anchor"
-            level="secondary"
+            level="primary"
             class="card__link"
           >
             {{ item.cta }}
           </TheButton>
-        </div>
+        </div> -->
         <Blob
           :id="index"
           :stops="gradientStops"
@@ -56,11 +56,11 @@
 
 <script>
 import Icon from 'elements/Icon'
-import TheButton from 'elements/TheButton'
+// import TheButton from 'elements/TheButton'
 import Blob from 'elements/Blob'
 
 export default {
-  components: { Icon, TheButton, Blob },
+  components: { Icon, /* TheButton, */ Blob },
   props: {
     items: {
       type: Array,
@@ -70,7 +70,8 @@ export default {
   data: () => ({
     gradientStops: [
       { offset: '0%', color: 'rgb(217, 243, 60)', opacity: 0.5 },
-      { offset: '100%', color: 'rgb(255, 173, 189)', opacity: 0.18 }
+      { offset: '70%', color: 'rgb(255, 173, 189)', opacity: 0.18 },
+      { offset: '90%', color: 'rgb(254, 253, 251)', opacity: 0.6 }
     ],
     activeCardIndex: 0
   }),
@@ -153,7 +154,7 @@ export default {
   position: relative;
   gap: 1em;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
   text-align: center;
   width: 368px;
   height: 340px;
