@@ -1,10 +1,26 @@
 <template>
-  <!-- <Swiper class="wrapper">
-    <SwiperSlide
-      v-for="(item, index) in items"
-      :key="index"
+  <div class="services">
+    <div
+      ref="dots"
+      class="dots"
     >
-      <div class="card">
+      <div class="dot active" />
+      <div class="dot" />
+      <div class="dot" />
+      <div class="dot" />
+      <div class="dot" />
+      <div class="dot" />
+    </div>
+
+    <ul
+      ref="scroller"
+      class="wrapper"
+    >
+      <li
+        v-for="(item, index) in items"
+        :key="index"
+        class="card"
+      >
         <div class="card__header">
           <Icon
             :name="item.pre"
@@ -33,45 +49,9 @@
           :stops="gradientStops"
           class="card__background"
         />
-      </div>
-    </SwiperSlide>
-  </Swiper> -->
-  <ul class="wrapper">
-    <li
-      v-for="(item, index) in items"
-      :key="index"
-      class="card"
-    >
-      <div class="card__header">
-        <Icon
-          :name="item.pre"
-          class="card__icon"
-        />
-      </div>
-      <div class="card__content">
-        <h3 class="card__title title">
-          {{ item.name }}
-        </h3>
-        <p class="card__body">
-          {{ item.description }}
-        </p>
-      </div>
-      <div class="card__footer">
-        <TheButton
-          :to="item.anchor"
-          level="secondary"
-          class="card__link"
-        >
-          {{ item.cta }}
-        </TheButton>
-      </div>
-      <Blob
-        :id="index"
-        :stops="gradientStops"
-        class="card__background"
-      />
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -79,10 +59,8 @@ import Icon from 'elements/Icon'
 import TheButton from 'elements/TheButton'
 import Blob from 'elements/Blob'
 
-// import { Swiper, SwiperSlide } from 'components/Swiper.vue'
-
 export default {
-  components: { Icon, TheButton, Blob /* , Swiper, SwiperSlide */ },
+  components: { Icon, TheButton, Blob },
   props: {
     items: {
       type: Array,
@@ -93,22 +71,80 @@ export default {
     gradientStops: [
       { offset: '0%', color: 'rgb(217, 243, 60)', opacity: 0.5 },
       { offset: '100%', color: 'rgb(255, 173, 189)', opacity: 0.18 }
-    ]
-  })
+    ],
+    activeCardIndex: 0
+  }),
+  mounted () {
+    this.$refs.scroller.addEventListener('scroll', this.handleScroll)
+  },
+  beforeDestroy () {
+    this.$refs.scroller.removeEventListener('scroll', this.handleScroll)
+  },
+  methods: {
+    handleScroll () {
+      const cards = [...this.$refs.scroller.children]
+      const dots = [...this.$refs.dots.children]
+
+      const activeCardIndex = cards.findIndex((card, index) => this.isElementInViewport(card))
+
+      if (activeCardIndex === this.activeCardIndex || activeCardIndex === -1) { return }
+
+      dots[this.activeCardIndex].classList.remove('active')
+
+      this.activeCardIndex = activeCardIndex
+
+      dots[this.activeCardIndex].classList.add('active')
+    },
+    isElementInViewport (el) {
+      const rect = el.getBoundingClientRect()
+      const sensibility = 250
+
+      return (
+        rect.left >= 0 - sensibility
+      )
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+.services {
+  position: relative;
+  margin-inline: -5%;
+}
+
 .wrapper {
   display: grid;
+  position: relative;
   gap: $gutter;
-  grid-template-columns: repeat(auto-fit, 368px);
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  place-items: center;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+
+  scroll-snap-type: inline mandatory;
+
+  > * {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
 
   @include for-tablet {
+    all: unset;
+    display: grid;
+  position: relative;
     gap: calc(#{$gutter} * 2);
+    grid-template-columns: repeat(auto-fit, 368px);
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -146,6 +182,32 @@ export default {
     position: absolute;
     inset: 0;
     z-index: -1;
+  }
+}
+
+.dots {
+  display: flex;
+  width: 240px;
+  margin-inline: auto;
+  margin-bottom: $gutter;
+  gap: $gutter-small;
+
+  .dot {
+    flex-grow: 1;
+    width: 1fr;
+    height: 1.8rem;
+    border-radius: 1.8rem;
+    background: $blob-gradient;
+    transition: flex-grow 0.25s linear, background-color 0.25s linear;
+
+    &.active {
+      flex-grow: 5;
+      background: $blob-gradient;
+    }
+  }
+
+  @include for-tablet {
+    display: none;
   }
 }
 </style>
