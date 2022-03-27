@@ -1,6 +1,6 @@
 //! Helpers
 .section {
-  padding: $gutter-large 0;
+  padding: $gutter-large 0; // TODO: rimuovere doppio padding tra "Contattaci" e "Follow us"
 }
 
 .section[class*="bg-"] {
