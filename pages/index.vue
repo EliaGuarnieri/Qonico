@@ -27,7 +27,7 @@
       />
       <div class="row">
         <div class="col">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo placeat, dicta numquam sint optio modi vero facere, odit laudantium ea expedita beatae possimus eveniet, cumque debitis deleniti iste sequi magnam?</p>
+          <p>Qonico nasce per aiutare le aziende e i privati nella trasformazione digitale. Il nostro approccio focalizzato sul cliente ci permette di trovare la soluzione ideale per creare o migliorare la tua presenza online. Siamo un gruppo di professionisti qualificati in grado di fornire soluzioni su misura per qualunque necessità.</p>
         </div>
         <div class="col">
           <Glass>
