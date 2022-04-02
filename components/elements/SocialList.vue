@@ -23,8 +23,8 @@ export default {
   data: () => ({
     social: [
       { icon: 'whatsapp', url: 'https://wa.me/+393469585761' },
-      { icon: 'facebook', url: '#' },
-      { icon: 'instagram', url: '#' }
+      { icon: 'facebook', url: 'https://www.facebook.com/qonico.agency' },
+      { icon: 'instagram', url: 'https://www.instagram.com/qonico.agency/' }
     ]
   })
 }
