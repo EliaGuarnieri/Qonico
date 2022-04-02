@@ -40,13 +40,9 @@ export default {
       loading: true
     }
   },
-  watch: {
-    analytics (value) {
-      value ? this.$gtag.optIn() : this.$gtag.optOut()
-    }
-  },
   beforeCreate () {
     this.loading = true
+    this.analytics ? this.$gtag.optIn() : this.$gtag.optOut()
   },
   mounted () {
     this.loading = false
@@ -57,6 +53,7 @@ export default {
         { name: 'consent', value: true, opts: { maxAges: 31556952 } },
         { name: 'analytics', value: true, opts: { maxAges: 31556952 } }
       ])
+      this.$gtag.optIn()
       this.updateConsent()
     },
     rejectCookies () {
@@ -64,6 +61,7 @@ export default {
         { name: 'consent', value: true, opts: { maxAges: 31556952 } },
         { name: 'analytics', value: false, opts: { maxAges: 31556952 } }
       ])
+      this.$gtag.optOut()
       this.updateConsent()
     },
     updateConsent () {
