@@ -42,9 +42,7 @@ export default {
   },
   watch: {
     analytics (value) {
-      if (value) {
-        this.$gtag.optIn()
-      }
+      value ? this.$gtag.optIn() : this.$gtag.optOut()
     }
   },
   beforeCreate () {
