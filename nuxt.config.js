@@ -11,7 +11,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Veri Web Design',
+    title: 'Qonico Agency',
     htmlAttrs: {
       lang: 'it'
     },
@@ -66,7 +66,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/vuelidate' }
+    { src: '~/plugins/vuelidate' },
+    { src: '~/plugins/gtag' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

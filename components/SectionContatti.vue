@@ -10,7 +10,7 @@
           class="contatti__phone"
         >
           <TextWithIcon pre="call">
-            +39 346 968 5761
+            +39 346 958 5761
           </TextWithIcon>
         </a>
         <SocialList />

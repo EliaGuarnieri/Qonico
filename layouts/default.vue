@@ -3,6 +3,7 @@
     class="app"
     :class="{ lockScroll: loading }"
   >
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
     <transition name="fade">
       <div
         v-if="loading"
@@ -35,11 +36,13 @@ export default {
   data () {
     return {
       consent: this.$nuxt.context.$cookies.get('consent'),
+      analytics: this.$nuxt.context.$cookies.get('analytics'),
       loading: true
     }
   },
   beforeCreate () {
     this.loading = true
+    this.analytics ? this.$gtag.optIn() : this.$gtag.optOut()
   },
   mounted () {
     this.loading = false
@@ -50,6 +53,7 @@ export default {
         { name: 'consent', value: true, opts: { maxAges: 31556952 } },
         { name: 'analytics', value: true, opts: { maxAges: 31556952 } }
       ])
+      this.$gtag.optIn()
       this.updateConsent()
     },
     rejectCookies () {
@@ -57,10 +61,12 @@ export default {
         { name: 'consent', value: true, opts: { maxAges: 31556952 } },
         { name: 'analytics', value: false, opts: { maxAges: 31556952 } }
       ])
+      this.$gtag.optOut()
       this.updateConsent()
     },
     updateConsent () {
       this.consent = this.$cookies.get('consent')
+      this.analytics = this.$cookies.get('analytics')
     }
   }
 }
