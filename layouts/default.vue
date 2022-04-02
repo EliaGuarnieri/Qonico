@@ -35,6 +35,7 @@ export default {
   data () {
     return {
       consent: this.$nuxt.context.$cookies.get('consent'),
+      analytics: this.$nuxt.context.$cookies.get('analytics'),
       loading: true
     }
   },
@@ -43,6 +44,9 @@ export default {
   },
   mounted () {
     this.loading = false
+    if (process.env.BRANCH === 'develop') {
+      console.log('prova')
+    }
   },
   methods: {
     acceptCookies () {
@@ -61,6 +65,7 @@ export default {
     },
     updateConsent () {
       this.consent = this.$cookies.get('consent')
+      this.analytics = this.$cookies.get('analytics')
     }
   }
 }
