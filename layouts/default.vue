@@ -40,6 +40,13 @@ export default {
       loading: true
     }
   },
+  watch: {
+    analytics (value) {
+      if (value) {
+        this.$gtag.optIn()
+      }
+    }
+  },
   beforeCreate () {
     this.loading = true
   },

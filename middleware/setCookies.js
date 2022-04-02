@@ -1,5 +1,4 @@
 export default ({ app }) => {
-  console.log(app.context.env.BRANCH)
   const consent = app.$cookies.get('consent')
   const analytics = app.$cookies.get('analitycs')
 
