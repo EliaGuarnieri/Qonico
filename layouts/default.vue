@@ -45,7 +45,9 @@ export default {
   mounted () {
     this.loading = false
     if (process.env.BRANCH === 'develop') {
-      console.log('prova')
+      console.warn('prova')
+    } else {
+      console.warn(process.env.BRANCH || 'non ho capito')
     }
   },
   methods: {
