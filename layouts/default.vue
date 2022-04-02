@@ -3,6 +3,7 @@
     class="app"
     :class="{ lockScroll: loading }"
   >
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
     <transition name="fade">
       <div
         v-if="loading"
@@ -44,11 +45,6 @@ export default {
   },
   mounted () {
     this.loading = false
-    if (process.env.BRANCH === 'develop') {
-      console.warn('prova')
-    } else {
-      console.warn(process.env.BRANCH || 'non ho capito')
-    }
   },
   methods: {
     acceptCookies () {
