@@ -153,7 +153,11 @@ export default {
         this.submit.state = 'success'
         this.submit.message = 'Grazie per averci contattato!\r\nPresto avrai nostre notizie 😎'
         // eslint-disable-next-line no-console
-        console.log('form submitted')
+        console.info('form submitted')
+        this.$gtag.event('form_submitted', {
+          event_category: 'Form submissions',
+          event_label: 'Form submissions'
+        })
       })
         .catch((error) => {
           this.submit.loading = false
