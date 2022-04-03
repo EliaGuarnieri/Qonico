@@ -1,6 +1,5 @@
 export default ({ app }) => {
-  const consent = app.$cookies.get('consent')
-  const analytics = app.$cookies.get('analitycs')
+  const { consent, analytics } = app.$cookies.getAll()
 
   if (!consent && !analytics) {
     app.$cookies.setAll([
