@@ -30,6 +30,8 @@ import TheHeader from 'components/TheHeader'
 import TheFooter from 'components/TheFooter'
 import CookiesConsent from 'components/CookiesConsent'
 
+import { bootstrap } from 'vue-gtag'
+
 export default {
   components: { TheHeader, TheFooter, CookiesConsent },
   middleware: 'setCookies',
@@ -42,26 +44,28 @@ export default {
   },
   beforeCreate () {
     this.loading = true
-    this.analytics ? this.$gtag.optIn() : this.$gtag.optOut()
   },
   mounted () {
     this.loading = false
   },
   methods: {
     acceptCookies () {
-      this.$cookies.setAll([
-        { name: 'consent', value: true, opts: { maxAges: 31556952 } },
-        { name: 'analytics', value: true, opts: { maxAges: 31556952 } }
-      ])
-      this.$gtag.optIn()
-      this.updateConsent()
+      if (process.browser) {
+        bootstrap().then(() => {
+          this.$cookies.setAll([
+            { name: 'consent', value: true, opts: { maxAges: 31556952 } },
+            { name: 'analytics', value: true, opts: { maxAges: 31556952 } }
+          ])
+          this.updateConsent()
+          location.reload()
+        })
+      }
     },
     rejectCookies () {
       this.$cookies.setAll([
         { name: 'consent', value: true, opts: { maxAges: 31556952 } },
         { name: 'analytics', value: false, opts: { maxAges: 31556952 } }
       ])
-      this.$gtag.optOut()
       this.updateConsent()
     },
     updateConsent () {
