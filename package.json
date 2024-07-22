@@ -28,7 +28,7 @@
     "vuelidate-error-extractor": "^2.4.1"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.5.4",
+    "@babel/eslint-parser": "^7.24.8",
     "@nuxtjs/eslint-config": "^9.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/style-resources": "^1.2.1",
